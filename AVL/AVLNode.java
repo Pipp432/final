@@ -1,4 +1,4 @@
-package book_BST;
+package AVL;
 
 public class AVLNode {
 	// cannot extend from BSTNode because left, right, parent will then be

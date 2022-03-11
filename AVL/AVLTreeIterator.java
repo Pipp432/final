@@ -1,6 +1,8 @@
-package book_BST;
+package AVL;
 
 import java.util.NoSuchElementException;
+
+import BST.Iterator;
 
 public class AVLTreeIterator implements Iterator {
 

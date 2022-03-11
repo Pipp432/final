@@ -1,4 +1,6 @@
-package book_BST;
+
+
+package BST;
 
 public class BSTRecursive {
 

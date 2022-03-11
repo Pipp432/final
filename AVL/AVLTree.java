@@ -1,4 +1,6 @@
-package book_BST;
+package AVL;
+
+import BST.Iterator;
 
 public class AVLTree {
 	AVLNode root;
