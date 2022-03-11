@@ -21,9 +21,15 @@ These are very similar to BST
 
 | Algorithm        | Time Complexity |
 | ------------- |:-------------:| 
-| Search      | O(log n) | 
+| Search    | O(log n) | 
 | Insert    | O(log n) |     
-| Delete| O(log n) |      
+| Delete    | O(log n) |      
 
 ## AVL Rotations
 These are preformed on the AVL tree if the balance factors are not -1, 0 or 1.
+There are 4 types of AVL rotations.
+
+| State       | Operation | Action|
+| ------------- |:-------------:|:-------------:| 
+| Right Unbalance Subtree| RR Rotation|![alt text](https://static.javatpoint.com/ds/images/avl-tree.jpg) |
+| Left Unbalance Subtree| LL Rotation|![alt text](https://static.javatpoint.com/ds/images/avl-tree2.jpg)|
