@@ -33,4 +33,4 @@ There are 4 types of AVL rotations.
 | ------------- |:-------------:|:-------------:| 
 | Right Right Unbalance (RR)| Left Rotation|![alt text](https://static.javatpoint.com/ds/images/avl-tree.jpg)|
 | Left Left Unbalance (LL)| Right Rotation|![alt text](https://static.javatpoint.com/ds/images/avl-tree2.jpg)|
-| Left Right Unbalance (LR)| RR + LL (Left Rotation + Right Rotation)|![alt text](https://static.javatpoint.com/ds/images/avl-tree3.jpg) ![alt text](https://static.javatpoint.com/ds/images/avl-tree4.jpg) ![alt text](https://static.javatpoint.com/ds/images/avl-tree5.jpg) ![alt text](https://static.javatpoint.com/ds/images/avl-tree6.jpg) ![alt text](https://static.javatpoint.com/ds/images/avl-tree7.jpg)|
+| Left Right Unbalance (LR)| RR + <br>LL (Left Rotation + Right Rotation)|![alt text](https://static.javatpoint.com/ds/images/avl-tree3.jpg) ![alt text](https://static.javatpoint.com/ds/images/avl-tree4.jpg) ![alt text](https://static.javatpoint.com/ds/images/avl-tree5.jpg) ![alt text](https://static.javatpoint.com/ds/images/avl-tree6.jpg) ![alt text](https://static.javatpoint.com/ds/images/avl-tree7.jpg)|
