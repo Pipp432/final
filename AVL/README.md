@@ -8,5 +8,7 @@ The structure of the tree is very similar to BST but with one big differrence th
 
 The balance factor can be calculated by:
 ```java
-BalanceFactor = height(left-sutree) − height(right-sutree)
+BalanceFactor = height(leftSubtree) − height(rightSubtree)
 ```
+This can be applied to each node to see its balance factor
+![alt text](https://www.tutorialspoint.com/data_structures_algorithms/images/unbalanced_avl_trees.jpg)
