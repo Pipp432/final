@@ -33,5 +33,4 @@ There are 4 types of AVL rotations.
 | ------------- |:-------------:|:-------------:| 
 | Right Unbalance Subtree| RR Rotation| |![alt text](https://static.javatpoint.com/ds/images/avl-tree.jpg)|
 | Left Unbalance Subtree| LL Rotation|![alt text](https://static.javatpoint.com/ds/images/avl-tree2.jpg)|
-hi
 
