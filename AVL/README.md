@@ -4,7 +4,7 @@
 ![alt text](https://www.tutorialspoint.com/data_structures_algorithms/images/unbalanced_bst.jpg)
 
 &nbsp;AVL tree named after its inventors: Adelson, Velski & Landis
-The structure of the tree is very similar to BST but with one big differrence that is the **Balance Factor.**
+The structure of the tree is very similar to BST but with one big differrence that is the **_Balance Factor._**
 
 The balance factor can be calculated by:
 ```java
@@ -14,3 +14,4 @@ This can be applied to each node to see its balance factor
 ![alt text](https://www.tutorialspoint.com/data_structures_algorithms/images/unbalanced_avl_trees.jpg)
 
 An AVL tree is considered **_balance_** if the nodes have a balance factor of -1, 0 or 1.
+![alt text](https://static.javatpoint.com/ds/images/avl-tree.png)
