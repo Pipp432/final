@@ -13,4 +13,4 @@ BalanceFactor = height(leftSubtree) − height(rightSubtree)
 This can be applied to each node to see its balance factor
 ![alt text](https://www.tutorialspoint.com/data_structures_algorithms/images/unbalanced_avl_trees.jpg)
 
-An AVL tree is considered **__balance__** if the nodes have a balance factor of -1, 0 or 1.
+An AVL tree is considered **_balance_** if the nodes have a balance factor of -1, 0 or 1.
