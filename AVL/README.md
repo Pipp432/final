@@ -29,8 +29,8 @@ These are very similar to BST
 These are preformed on the AVL tree if the balance factors are not -1, 0 or 1.
 There are 4 types of AVL rotations.
 
-| State       | Operation | Action|
+| Unbalance State      | Operation | Action|
 | ------------- |:-------------:|:-------------:| 
-| Right Unbalance Subtree| RR Rotation| ![alt text](https://static.javatpoint.com/ds/images/avl-tree.jpg)|
-| Left Unbalance Subtree| LL Rotation|![alt text](https://static.javatpoint.com/ds/images/avl-tree2.jpg)|
-
+| Right Right Unbalance (RR)| Left Rotation|![alt text](https://static.javatpoint.com/ds/images/avl-tree.jpg)|
+| Left Left Unbalance (LL)| Right Rotation|![alt text](https://static.javatpoint.com/ds/images/avl-tree2.jpg)|
+| Left Right Unbalance (LR)| RR + LL (Left Rotation + Right Rotation)|![alt text](https://static.javatpoint.com/ds/images/avl-tree3.jpg) ![alt text](https://static.javatpoint.com/ds/images/avl-tree4.jpg) 
