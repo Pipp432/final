@@ -1,10 +1,10 @@
 # AVL tree
 ## Basic & Introduction
-&nbsp;AVL tree was created to solve a problem with BST. Consider the case where the data is input in a sorted manner (ascending or descending). A problem will arise that the searching algorithms will have time complexity of O(n) so AVL is created to help balance the tree.
+&nbsp;&nbsp;AVL tree was created to solve a problem with BST. Consider the case where the data is input in a sorted manner (ascending or descending). A problem will arise that the searching algorithms will have time complexity of O(n) so AVL is created to help balance the tree.
 
 ![alt text](https://www.tutorialspoint.com/data_structures_algorithms/images/unbalanced_bst.jpg)
 
-&nbsp;AVL tree named after its inventors: Adelson, Velski & Landis
+&nbsp;&nbsp;AVL tree named after its inventors: Adelson, Velski & Landis
 The structure of the tree is very similar to BST but with one big differrence that is the **_Balance Factor._**
 
 The balance factor can be calculated by:
