@@ -5,3 +5,8 @@
 
 &nbsp;AVL tree named after its inventors: Adelson, Velski & Landis
 The structure of the tree is very similar to BST but with one big differrence that is the **Balance Factor.**
+
+The balance factor can be calculated by:
+```java
+BalanceFactor = height(left-sutree) − height(right-sutree)
+```
