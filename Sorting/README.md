@@ -47,3 +47,4 @@ Find minimum data from index 4 to 5 and swap with index 4<br>
 Find minimum data from index 5 to 5 and swap with index 5<br>
 [`1`, `4`, `5`,`6`,`7`,`10`]<br>
 _*DONE*_
+### *_Time complexity: O(n^2)_*
