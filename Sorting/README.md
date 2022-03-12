@@ -6,7 +6,7 @@ The main idea is to compare and swap each adjecent data until the data is sorted
 ### Algoritm
 Consider the array: [1, 4, 5, 10, 7, 6]
 *_First Pass_*<br>
-[<u>**_1_**</u>, **_4_**, 5, 10, 7, 6]<br>
+[`**_1_**`, `**_4_**`, 5, 10, 7, 6]<br>
 [1, **_4_**, **_5_**, 10, 7, 6]<br>
 [1, 4, **_5_**, **_10_**, 7, 6]<br>
 [1, 4, 5, **_10_**, **_7_**, 6] Swap occurs <br>
