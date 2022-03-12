@@ -19,6 +19,6 @@ Consider the array: [1, 4, 5, 10, 7, 6]
 [1, 4, 5, `7`, `6`, 10] Swap occurs <br>
 [1, 4, 5, 6, 7, 10] End of second pass (7 and 10 are sorted)<br>
 *_Third, Foruth & Fifth Pass_*<br>
-[1, 4, 5, 6, 7, 10] End of second pass (1,4,5,6,7 and 10 are sorted)<br>
+[1, 4, 5, 6, 7, 10] End of second pass (1, 4, 5, 6, 7 and 10 are sorted)<br>
 **NOTE**: The code does not stop when the array is sorted. It stops when it completes the length-1 pass.<br>
-*_Time complexity: O(n^2)_*
+### *_Time complexity: O(n^2)_*
