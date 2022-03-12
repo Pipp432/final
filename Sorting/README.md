@@ -20,6 +20,7 @@ Consider the array: [1, 4, 5, 10, 7, 6]<br>
 [1, 4, 5, 6, 7, 10] End of second pass (7 and 10 are sorted)<br>
 *_Third, Foruth & Fifth Pass_*<br>
 [1, 4, 5, 6, 7, 10] End of second pass (1, 4, 5, 6, 7 and 10 are sorted)<br>
+_*DONE*_
 **NOTE**: The code does not stop when the array is sorted. It stops when it completes the length-1 pass.<br>
 ### *_Time complexity: O(n^2)_*
 
@@ -48,3 +49,29 @@ Find minimum data from index 5 to 5 and swap with index 5<br>
 [`1`, `4`, `5`,`6`,`7`,`10`]<br>
 _*DONE*_
 ### *_Time complexity: O(n^2)_*
+
+## Insertion Sort
+### Intro & General Idea
+&ensp;Insertion sort works by comparing an element to the index next of it, if the next one is lesser than it insert the lesser data to the front of the selected data (Hence, insertion sort)
+### Algoritm
+Consider the array: [1, 4, 5, 10, 7, 6]<br>
+*_First Pass_*<br>
+Select 4 (i = 1)<br>
+Since 1 is lesser than 4 no need to do insertion<br>
+*_Second Pass_*<br>
+Select 5 (i = 2)<br>
+Since 1 and 4 is lesser than 5 no need to do insertion<br>
+*_Third Pass_*<br>
+Select 10 (i = 3)<br>
+Since 1, 4 and 5 is lesser than 10 no need to do insertion<br>
+*_Fourth Pass_*<br>
+Select 7 (i = 4)<br>
+7 is less than 10 so insert it infront of 10<br>
+[1, 4, 5, `7`, `10`,6]<br>
+*_Fifth Pass_*<br>
+Select 6 (i = 5)<br>
+6 is less than 10 and 7 so insert it infront of 7<br>
+[1, 4, 5, `6`, `7`, `10`]<br>
+[1, 4, 5, 6, 7, 10]<br>
+_*DONE*_
+
