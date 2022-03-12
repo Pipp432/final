@@ -75,3 +75,8 @@ Select 6 (i = 5)<br>
 [1, 4, 5, 6, 7, 10]<br>
 _*DONE*_
 
+## Merge Sort
+### Intro & General Idea
+&ensp; Merge sort is known as a *_divide and conquer algorithm_*. These types of these algorithm work by dividing the array into 2 halves, sort them and merge the sorted halves. To illustrate the algorithm<br>
+![alt text](https://media.geeksforgeeks.org/wp-content/cdn-uploads/Merge-Sort-Tutorial.png)<br>
+
