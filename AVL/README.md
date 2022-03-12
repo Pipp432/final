@@ -35,3 +35,9 @@ There are 4 types of AVL rotations.
 | Left Left Unbalanced (LL)| Right Rotation|![alt text](https://static.javatpoint.com/ds/images/avl-tree2.jpg)|
 | Left Right Unbalanced (LR)| RR + LL <br>(Left Rotation + Right Rotation)|1.<br> ![alt text](https://static.javatpoint.com/ds/images/avl-tree3.jpg)<br> 2.<br>![alt text](https://static.javatpoint.com/ds/images/avl-tree4.jpg)<br> 3.<br>![alt text](https://static.javatpoint.com/ds/images/avl-tree5.jpg)<br> 4.<br>![alt text](https://static.javatpoint.com/ds/images/avl-tree6.jpg) <br>5.<br>![alt text](https://static.javatpoint.com/ds/images/avl-tree7.jpg)|
 |Right Left Unbalanced| LL + RR <br>(Right Rotation + Left Rotation)|1.<br> ![alt text](https://static.javatpoint.com/ds/images/avl-tree8.jpg)<br> 2.<br> ![alt text](https://static.javatpoint.com/ds/images/avl-tree9.jpg)<br> 3.<br> ![alt text](https://static.javatpoint.com/ds/images/avl-tree10.jpg)<br> 4.<br>![alt text](https://static.javatpoint.com/ds/images/avl-tree11.jpg)<br> 5.<br> ![alt text](https://static.javatpoint.com/ds/images/avl-tree12.jpg) |
+
+## AVL vs BST
+| Parameter     | BST | AVL tree|
+| ------------- |:-------------:|:-------------:| 
+|Height of the tree|can be log(n) to n depends on order of insertion|always log(n)|
+|Searching for sorted insertions|Time complexity: O(n)| Time Complexity: O(log n)|
