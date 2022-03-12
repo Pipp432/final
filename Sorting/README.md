@@ -4,7 +4,7 @@
 Bubble sort is one of the most basic sorting method.
 The main idea is to compare and swap each adjecent data until the data is sorted.
 ### Algoritm
-Consider the array: [1, 4, 5, 10, 7, 6]
+Consider the array: [1, 4, 5, 10, 7, 6]<br>
 *_First Pass_*<br>
 [`1`, `4`, 5, 10, 7, 6]<br>
 [1, `4`, `5`, 10, 7, 6]<br>
