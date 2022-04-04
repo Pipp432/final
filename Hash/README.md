@@ -14,3 +14,8 @@ _*Hash Function*_ should be:<br>
 The main advantage of hashing is searching only taking 
 O(1) for the average cases and O(n) for the worst case<br><br>
 ![alt text](https://www.tutorialspoint.com/data_structures_algorithms/images/hash_function.jpg)<br>
+
+## Collision and Design of Hash Function 
+Since the hash function might not be 1-1 relation an event called _*collision*_, where 2 seperate values generate the same key, which can cause our algorithms to slow down, so to deal with this problem two implementations are used to deal with collisions:<br>
+1. Seperate chaining
+2. Open addressing
