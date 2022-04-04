@@ -34,14 +34,8 @@ Where, h<sub>i</sub>(x) = (hash(x) + f(i))%array size and f(0) = 0
 ### Defining f(i)
 1. Linear Probing 
 f(i) in this implementation is defined as: f(i) = i<br>
+, basically pushing the collided data to the next slot
 #### Example 
-Assume hash(x) = x % array size.<br>
-The input data: 1, 11, 3, 8<br>
-Inserting 1, 11, and 3 is straightfoward.<br> 
-Now consider inserting 8<br><br>
-|&ensp;| 1 |&ensp;| 3 | 11 |&ensp;|&ensp;|<br><br>
-Since h<sub>0</sub>(8)=hash(8) =  8 % 7 = 1 Thus a collision occurs<br>
-Checking h<sub>1</sub>(8) = (hash(8)+f(1)) % 7 = 2 <br>
-Resulting Array:<br><br>
-|&ensp;| 1 | 8 | 3 | 11 |&ensp;|&ensp;|
+![alt text](https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/08/openAddressing1.png)<br>
+
 
