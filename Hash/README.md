@@ -28,6 +28,6 @@ This implementation handles the event of a collision.<br>
 The pattern of finding slots:<br>
 - If data is x, we first check array slot h<sub>0</sub>(x) in the array.
 - If the data collides with another existing data, try slot h<sub>1</sub>(x) in the array.
-- If the data still collides, try slot h<sub>2</sub>(x), etc.
+- If the data still collides, try slot h<sub>2</sub>(x), etc.<br>
 Where, h<sub>i</sub>(x) = (hash(x) + f(i))%array size and f(0) = 0
 
