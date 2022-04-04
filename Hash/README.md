@@ -12,5 +12,5 @@ _*Hash Function*_ should be:<br>
 3. Different keys map to diferent values
 ## Why use hashing?
 The main advantage of hashing is searching only taking 
-O(1) for the average cases and O(n) for the worst case<br>
+O(1) for the average cases and O(n) for the worst case<br><br>
 ![alt text](https://www.tutorialspoint.com/data_structures_algorithms/images/hash_function.jpg)<br>
