@@ -17,5 +17,14 @@ O(1) for the average cases and O(n) for the worst case<br><br>
 
 ## Collision and Design of Hash Function 
 Since the hash function might not be 1-1 relation an event called _*collision*_, where 2 seperate values generate the same key, which can cause our algorithms to slow down, so to deal with this problem two implementations are used to deal with collisions:<br>
-1. Seperate chaining
-2. Open addressing
+### 1. Seperate chaining
+This idea can simply be explained as follows:
+- Each array slots, instead of storing a single element, sotres a linked list of data instead.
+- All data with same hash value (key) go into the same linked list.
+- To find a data, use the hash function to find the linked list and then search for the data within it.
+- To add a new data, use a hash function to find a linked list that will (or already) store that data, then search the list for that data. If the list already have the data do nothing, else add new data to the front of the list
+### 2. Open Addressing 
+This implementation handles the event of a collision.<br>
+The pattern of finding slots:<br>
+- If data is x, we first check array slot h<sub>0</sub>(x)
+
