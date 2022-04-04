@@ -1,4 +1,7 @@
 # Hash Table & Hash Function
+## Hash Table
+&ensp;A hash table is an array that uses hashing to store its data this allows for quick retrieval of data.<br>
+
 ## Hashing
 &ensp;Hashing is a technique is a process of mapping key, values into the hash table by using hash functions (denoted as H(x)). In most cases the effiency of hashing is dependent on the hash function used.
 
@@ -10,6 +13,4 @@ _*Hash Function*_ should be:<br>
 ## Why use hashing?
 The main advantage of hashing is searching only taking 
 O(1) for the average cases and O(n) for the worst case
-## Hash Table
-&ensp;A hash table is an array that uses hashing to store its data this allows for quick retrieval of data.<br>
-![alt text](https://www.tutorialspoint.com/data_structures_algorithms/images/hash_function.jpg)<br>
+![alt text](https://www.tutorialspoint.com/data_structures_algorithms/images/hash_function.jpg)<br
