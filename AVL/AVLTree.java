@@ -1,5 +1,7 @@
 package AVL;
 
+import java.util.ArrayList;
+
 import BST.Iterator;
 
 public class AVLTree {
@@ -147,6 +149,66 @@ public class AVLTree {
 		AVLNode.updateHeight(n);
 		AVLNode.updateHeight(l);
 		return l;
+	}
+	public void makeAVL() throws Exception {
+		AVLTreeIterator itr =(AVLTreeIterator)findMin();
+		if(isEmpty()) return;
+		ArrayList<Integer> arr =new ArrayList<>();
+		
+		while(itr.hasNext()) {
+			
+			arr.add(itr.currentNode.data);
+			remove(itr.currentNode.data);
+			itr.next();
+		}
+		
+		for(int i=0;i<arr.size();i++) {
+			
+			this.root = this.insert(arr.get(i));
+		}
+				
+	}
+
+	public boolean isAVL() throws Exception {
+		AVLTreeIterator itr = (AVLTreeIterator)(findMin());
+		if(root==null) return true;
+		AVLTree leftTree = new AVLTree();
+		leftTree.root = root.left;
+		AVLTree rightTree = new AVLTree();
+		rightTree.root = root.right;
+		if(Math.abs(root.left.height-root.right.height)<=1 && leftTree.isAVL() && rightTree.isAVL()) {
+			return true;
+		}
+		return false; 
+		
+	}
+
+
+	public static boolean same(AVLTree t1, AVLTree t2) {
+		if(t1.root==null&&t2.root==null) return true;
+		AVLNode current1 = t1.root;
+		AVLNode current2 = t2.root;
+		AVLTree tree1Left = new AVLTree();
+		tree1Left.root = t1.root.left;
+		AVLTree tree2Left = new AVLTree();
+		tree2Left.root = t2.root.left;
+		AVLTree tree1Right = new AVLTree();
+		tree1Right.root = t1.root.right;
+		AVLTree tree2Right = new AVLTree();
+		tree2Right.root = t2.root.right;
+		if(current1!=null && current2!=null) {
+			
+			return (current1.data==current2.data) && same(tree1Left,tree2Left) && same(tree1Right,tree2Right);
+			
+			
+		}
+		return false;
+		
+	
+	
+				
+	
+		
 	}
 
 	public AVLNode rotateRightChild(AVLNode n) {
