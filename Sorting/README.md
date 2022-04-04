@@ -80,3 +80,23 @@ _*DONE*_
 &ensp; Merge sort is known as a *_divide and conquer algorithm_*. These types of these algorithm work by dividing the array into 2 halves, sort them and merge the sorted halves. To illustrate the algorithm<br><br>
 ![alt text](https://media.geeksforgeeks.org/wp-content/cdn-uploads/Merge-Sort-Tutorial.png)<br>
 ### Algoritm
+Consider the array: [1, 4, 5, 10, 7, 6]<br>
+#### Dividing Array
+Find the middle of the array: between 5 and 10<br>
+Result Array: [1, 4, 5], [10, 7, 6]
+Find middle of arrays : 4 and 7<br>
+Result Array: [1, 4], [5], [10], [7, 6] (or [1], [4, 5], [10] [7, 6] up to you!)<br>
+Find middle of arrays : between 1 and 4 and between 7 and 6<br>
+Result Array: [1], [4], [5], [10], [7], [6] <br>
+Since the arrays are as small as possible we sort them
+#### Sorting & Merge Arrays
+Current Arrays: [1], [4], [5], [10], [7], [6] <br>
+Select 2 arrays sort them and then merge them<br>
+*_First Pass_*<br>
+Result Array: [1, 4], [5], [10], [6, 7]<br>
+*_Second Pass_*<br>
+Result Array: [1, 4, 5], [6, 7, 10]<br>
+*_Third Pass_*<br>
+Result Array: [1, 4, 5, 6, 7, 10]<br>
+
+
