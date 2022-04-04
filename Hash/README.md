@@ -39,9 +39,9 @@ Assume hash(x) = x % array size.<br>
 The input data: 1, 11, 3, 8<br>
 Inserting 1, 11, and 3 is straightfoward.<br> 
 Now consider inserting 8<br><br>
-|  | 1 |  | 3 | 11 |   |   |<br><br>
+|&ensp;| 1 |&ensp;| 3 | 11 |&ensp;|&ensp;|<br><br>
 Since h<sub>0</sub>(8)=hash(8) =  8 % 7 = 1 Thus a collision occurs<br>
 Checking h<sub>1</sub>(8) = (hash(8)+f(1)) % 7 = 2 <br>
 Resulting Array:<br><br>
-|  | 1 | 8 | 3 | 11 |   |   |
+|&ensp;| 1 | 8 | 3 | 11 |&ensp;|&ensp;|
 
