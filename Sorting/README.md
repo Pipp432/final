@@ -83,12 +83,12 @@ _*DONE*_
 Consider the array: [1, 4, 5, 10, 7, 6]<br>
 #### Dividing Array
 Find the middle of the array: between 5 and 10<br>
-Result Array: [1, 4, 5], [10, 7, 6]
+Result Array: [1, 4, 5], [10, 7, 6]<br>
 Find middle of arrays : 4 and 7<br>
 Result Array: [1, 4], [5], [10], [7, 6] (or [1], [4, 5], [10] [7, 6] up to you!)<br>
 Find middle of arrays : between 1 and 4 and between 7 and 6<br>
 Result Array: [1], [4], [5], [10], [7], [6] <br>
-Since the arrays are as small as possible we sort them
+Since the arrays are as small as possible we sort them<br>
 #### Sorting & Merge Arrays
 Current Arrays: [1], [4], [5], [10], [7], [6] <br>
 Select 2 arrays sort them and then merge them<br>
