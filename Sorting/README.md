@@ -7,7 +7,7 @@
 |Insertion Sort|O(n^2)|
 |Merge Sort|O(log(n))|
 |Quick Sort|O(log(n))|
-|Bucket Sort|{\displaystyle O\left(n^{2}\right)}|
+|Bucket Sort|O(n^2)|
 ## Bubble Sort
 ### Intro & General Idea
 &ensp;Bubble sort is one of the most basic sorting method.
