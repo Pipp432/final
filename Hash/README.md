@@ -33,8 +33,7 @@ Where, h<sub>i</sub>(x) = (hash(x) + f(i)) % array size and f(0) = 0
 
 ### Defining f(i)
 1. Linear Probing 
-f(i) in this implementation is defined as: f(i) = i<br>
-, basically pushing the collided data to the next slot
+f(i) in this implementation is defined as: f(i) = i, basically pushing the collided data to the next slot
 #### Example 
 Inserting  700, 50, 76, 85, 92, 101, 73 with h<sub>i</sub>(x) = (hash(x) + f(i)) % array size<br><br>
 ![alt text](https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/08/openAddressing1.png)<br>
