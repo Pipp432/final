@@ -1,4 +1,12 @@
 # Sorting
+## Table of Complexity
+ Sortig Algorithm| Complexity|
+|:----------------:|:--------"|
+|Bubble Sort|O(n^2)|
+|Selection Sort|O(n^2)|
+|Insertion Sort|O(n^2)|
+|Merge Sort|O(log(n))|
+
 ## Bubble Sort
 ### Intro & General Idea
 &ensp;Bubble sort is one of the most basic sorting method.
