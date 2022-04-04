@@ -1,7 +1,7 @@
 # Sorting
 ## Table of Complexity
  Sortig Algorithm| Complexity|
-|:----------------|:--------|
+|:----------------:|:--------:|
 |Bubble Sort|O(n^2)|
 |Selection Sort|O(n^2)|
 |Insertion Sort|O(n^2)|
