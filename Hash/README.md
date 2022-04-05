@@ -40,4 +40,9 @@ Inserting  700, 50, 76, 85, 92, 101, 73 with h<sub>i</sub>(x) = (hash(x) + f(i))
 
 &ensp;&ensp;For searching and removing are the same, but a problem arises. Since the searching and removing algorithms stops when an empty slot (data is not in table) or the data is found. _**This can cause our algorithm to stop prematurely**_.
 A solution is using _**lazy deletion**_ by adding `DL` into a removed slot to make the algorithm continue.<br>
-&ensp;&ensp;Another problem is _**primary clustering**_, where several slots are likely to be cosecutively occupied, which causes collisions because linear probing searches the next slot to the one collided.
+&ensp;&ensp;Another problem with linear probing is _**primary clustering**_, where several slots are likely to be cosecutively occupied, which causes collisions because linear probing searches the next slot to the one collided.
+#### 2. Quadratic Probing 
+In this approach we have: f(i) = i^2<br>
+#### Example 
+Inserting  700, 50, 76, 85, 92, 101, 73 with h<sub>i</sub>(x) = (hash(x) + f(i)) % array size<br><br>
+![alt text](https://media.geeksforgeeks.org/wp-content/uploads/20200421211818/Hashing3.png)<br>
