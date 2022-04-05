@@ -38,6 +38,6 @@ f(i) in this implementation is defined as: f(i) = i, basically pushing the colli
 Inserting  700, 50, 76, 85, 92, 101, 73 with h<sub>i</sub>(x) = (hash(x) + f(i)) % array size<br><br>
 ![alt text](https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/08/openAddressing1.png)<br>
 
-&ensp;For searching and removing are the same, but a problem arises. Since the searching and removing algorithms stops when an empty slot (data is not in table) or the data is found. _**This can cause our algorithm to stop prematurely**_.
+&ensp;&ensp;For searching and removing are the same, but a problem arises. Since the searching and removing algorithms stops when an empty slot (data is not in table) or the data is found. _**This can cause our algorithm to stop prematurely**_.
 A solution is using _**lazy deletion**_ by adding `DL` into a removed slot to make the algorithm continue.<br>
-&ensp;Another problem is _**primary clustering**_, where several slots are likely to be cosecutively occupied, which causes collisions because linear probing searches the next slot to the one collided.
+&ensp;&ensp;Another problem is _**primary clustering**_, where several slots are likely to be cosecutively occupied, which causes collisions because linear probing searches the next slot to the one collided.
