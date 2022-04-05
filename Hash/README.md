@@ -46,3 +46,6 @@ In this approach we have: f(i) = i^2<br>
 #### Example 
 Inserting  700, 50, 76, 85, 92, 101, 73 with h<sub>i</sub>(x) = (hash(x) + f(i)) % array size<br><br>
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200421211818/Hashing3.png" alt="drawing" width="450"/><br>
+
+&ensp;&ensp;A problem with this implementation is if a collision occurs on same slots the longer it takes to find an empty slot. This is called _**secondary clustering**_. An occurs because the method of calculation is the same for the data that has the same collision.
+&ensp;&ensp;A size of the hash table using this technique is special because 
