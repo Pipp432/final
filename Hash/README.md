@@ -45,4 +45,4 @@ A solution is using _**lazy deletion**_ by adding `DL` into a removed slot to ma
 In this approach we have: f(i) = i^2<br>
 #### Example 
 Inserting  700, 50, 76, 85, 92, 101, 73 with h<sub>i</sub>(x) = (hash(x) + f(i)) % array size<br><br>
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200421211818/Hashing3.png" alt="drawing" width="200"/><br>
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20200421211818/Hashing3.png" alt="drawing" width="400"/><br>
