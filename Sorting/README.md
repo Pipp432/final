@@ -120,18 +120,18 @@ _*DONE*_
 ### Algorithm
 Consider the array: [1, 5, 7, 9, 10, 6, 11, 8]<br>
 
-*_Pivot Selection_*<br>
+#### Pivot Selection<br>
 
 For simplicity we shall select the last element of an array to be the pivot.<br>
 [1, 5, 7, 9, 10, 6, 11, `8`] <br>
 
-*_Partition_*<br>
+#### Partition<br>
 
 Now put all element with value less than the pivot to the left and all element with value more than the pivot to the right.<br>
 [1, 5, 7, 6, `8`, 9, 10, 11]<br>
 The details of this method will be best explained in the code (Easy to say, hard to code situation).<br>
 Note that the current pivot is now in the sorted position.<br>
 
-*_Recursive Calls_*<br>
+#### Recursive Calls<br>
 
 The method will now be called for the left and right partition arrays until the whole array is sorted.
