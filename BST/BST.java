@@ -267,27 +267,37 @@ public class BST {
 
 
 	}
+	public BSTNode invert(BSTNode root){
+		// Base case
+		if(root== null) return root;
+
+		// Tree traversal
+		// Invert the subtress until the reaching the leafs.
+		BSTNode left = invert(root.left);
+		BSTNode right = invert(root.right);
+		// swap
+		root.right = left;
+		root.left = right;
+		return root;
+
+	}
 	
 
-	// public static void main(String[] args) {
-	// 	BSTNode r = new BSTNode(7);
-	// 	BST t = new BST(r, 1);
-	// 	t.insert(3);
-	// 	t.insert(1);
-	// 	t.insert(11);
-	// 	t.insert(2);
-	// 	t.insert(5);
-	// 	t.insert(9);
-	// 	t.insert(6);
+	public static void main(String[] args) {
+		BSTNode r = new BSTNode(7);
+		BST t = new BST(r, 1);
+		t.insert(3);
+		t.insert(1);
+		t.insert(11);
+		t.insert(2);
+		t.insert(5);
+		t.insert(9);
+		t.insert(6);
 
-	// 	t.insert(0);
-	// 	t.insert(8);
-	// 	t.insert(10);
-	// 	t.insert(12);
-	// 	t.insert(13);
-	// 	t.insert(14);
-	// 	t.insert(4);
-	// 	BTreePrinter.printNode(t.root);
+		
+		BTreePrinter.printNode(t.root);
+		BTreePrinter.printNode(t.invert(t.root));
+	}
 
 	// 	System.out.println("Now, remove 2.");
 	// 	t.remove(2);
