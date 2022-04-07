@@ -6,3 +6,5 @@ Hello again friends! This is a java repo. for data sturcture and algorithm files
 |makeAVL()|AVL Aj.Sukree HW|-|AVLTree.java|
 |isAVL()|AVL Aj.Sukree HW|-|AVLTree.java|
 |same()|AVL Aj.Sukree HW|-|AVLTree.java|
+|CovidData class|Hash Aj.Sukree HW|-|CovidData.java|
+|SelectionSort|final_2015|-|SelectionSort2.java|
