@@ -83,7 +83,7 @@ class MergeSort
         System.out.println("Given Array");
         printArray(arr);
   
-        MergeSort ob = new MergeSort();
+       
         MergeSort.sort(arr);
         
   
