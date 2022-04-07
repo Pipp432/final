@@ -170,7 +170,6 @@ public class AVLTree {
 	}
 
 	public boolean isAVL() throws Exception {
-		AVLTreeIterator itr = (AVLTreeIterator)(findMin());
 		if(root==null) return true;
 		AVLTree leftTree = new AVLTree();
 		leftTree.root = root.left;
