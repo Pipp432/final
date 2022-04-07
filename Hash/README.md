@@ -48,4 +48,9 @@ Inserting  700, 50, 76, 85, 92, 101, 73 with h<sub>i</sub>(x) = (hash(x) + f(i))
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20200421211818/Hashing3.png" alt="drawing" width="450"/><br>
 
 &ensp;&ensp;A problem with this implementation is if a collision occurs on same slots the longer it takes to find an empty slot. This is called _**secondary clustering**_. An occurs because the method of calculation is the same for the data that has the same collision.
-&ensp;&ensp;A size of the hash table using this technique is special because 
+&ensp;&ensp;A size of the hash table using this technique is special because if the table size is a prime and the hash table is not yet half full then we can always find a new slot for the data.
+#### 3. Double Hashing
+This implementation uses<br>
+f(i) =  i * hash<sub>2</sub>(x), where x is the data.<br>
+This implementation avoids primary and secondary clustering beacause the second hashing will make the pattern for each data likely to be different. An example<br>
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/double-hash-function.png" alt="drawing" width="450"/><br>
