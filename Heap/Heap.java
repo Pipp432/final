@@ -1,6 +1,7 @@
 package Heap;
 
 import Sorting.ArrayPrinter;
+import Sorting.QuickSort;
 
 public class Heap{
     int[] mData;
@@ -103,6 +104,27 @@ public class Heap{
         // Time Complexity of O(nlogn): add takes logn the loop takes n
     }
 
+    public static int[]  makeHeap2(int[] a){
+        //? We shall make assumptions: 1. The array is unsorted, 2. No searching algorithm is allowed, 3. Input array is allowed to be modified
+       // This is working on a techniacallity a sorted array is min heap.
+        QuickSort.quickSort(a, 0, a.length-1);
+        return a;
+        // Time Complexity of O(nlogn): add takes logn the loop takes n
+    }
+    public static boolean isHeap(int[] a, int parent){
+        int left = 2*parent+1;
+        int right = 2*parent+2;
+        if(a.length==0) return false;
+        if(parent<0 || left<0||right<0) return false;
+        if(left>right) return false;
+        if(left>a.length || right>a.length) return true;
+        if(a[parent]<a[left] && a[parent]<a[right]){
+            parent++;
+            return isHeap(a,parent);
+        }
+
+        return false;
+    }
 
    
 
@@ -111,6 +133,10 @@ public class Heap{
         ArrayPrinter ap = new ArrayPrinter();
         int[] arr = { 1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17 };
         ap.printArray(makeHeap(arr));
+        ap.printArray(makeHeap2(arr));
+        int[] arr2 = { 3, 1, 5, 4, 6, 13, 10, 9, 8, 15, 17 };
+        System.out.println(isHeap(arr, 0));
+        System.out.println(isHeap(arr2, 0));
        
         Heap heap = new Heap();
         heap.add(26);
