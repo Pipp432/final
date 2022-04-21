@@ -56,9 +56,9 @@ public class Heap{
     public int pop() throws Exception{
         if(size ==0) throw new Exception("Priority queue empty");
         int minData = mData[0];
-        mData[0] = mData[size-1];
+        mData[0] = mData[size-1]; // Overwrite the first with the last data
         size--;
-        percolateDown(0);
+        percolateDown(0); // Start percolateDown
         return minData;
 
     }
@@ -66,20 +66,27 @@ public class Heap{
         int parent = start;
         int child = 2 * parent + 1; // Left Child
         int temp;
+        // Check if left child exists
         while(child < size){
-            int leftVal = mData[child];
+            int leftVal = mData[child]; // Get the left data
+            // The left child must hav a right child to compare with 
+            // so check if a right child exist
             if(child<size-1){
-                int rightVal = mData[child+1];
-                if(leftVal>rightVal) child++;
+                int rightVal = mData[child+1]; // Get the right data
+                if(leftVal>rightVal) child++; // Increment child index if left > right 
+                //beacuse we need to compare with the parent to see who is less
             }
 
-            int parentVal = mData[parent];
+            int parentVal = mData[parent]; // Get parent data
             if(parentVal < mData[child]){
-                break;
+                break; // if the parent data is less than its child meaning it is in the correct index
             }
+            // if not swap them
             temp = mData[child];
             mData[child] = mData[parent];
             mData[parent] = temp;
+            //the parent index is changed and if the the node isn't a leaf the loop will run again until it reaches a leaf 
+            //or the data (overwritten root) is in its correct index
             parent = child;
             child  =2*parent+1;
 
@@ -97,23 +104,14 @@ public class Heap{
     }
 
 
-    public static int[]  makeHeap2(int[] a){
-        //? We shall make assumptions: 1. The array is unsorted, 2. No searching algorithm is allowed, 3. Input array is allowed to be modified
-        //* This is the no add() method version
-        Heap result = new Heap();
-        for(int e : a){
-            result.add(e);
-        }
-        return result.mData;
-        // Time Complexity of O(nlogn): add takes logn the loop takes n
-    }
-    
+   
 
 
     public static void main(String[] args){
         ArrayPrinter ap = new ArrayPrinter();
-        int[] arr = {24,54,32,35,465,84};
+        int[] arr = { 1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17 };
         ap.printArray(makeHeap(arr));
+       
         Heap heap = new Heap();
         heap.add(26);
         heap.add(40);
