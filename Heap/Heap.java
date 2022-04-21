@@ -133,7 +133,7 @@ public class Heap{
         ArrayPrinter ap = new ArrayPrinter();
         int[] arr = { 1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17 };
         ap.printArray(makeHeap(arr));
-        ap.printArray(makeHeap2(arr));
+        System.out.println(isHeap(makeHeap2(arr),0));
         int[] arr2 = { 3, 1, 5, 4, 6, 13, 10, 9, 8, 15, 17 };
         System.out.println(isHeap(arr, 0));
         System.out.println(isHeap(arr2, 0));
