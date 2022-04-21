@@ -14,3 +14,8 @@ Hello again friends! This is a java repo. for data sturcture and algorithm files
 |add() for Double Hashing|final_2019|-|DoubleHashing.java|
 |Invert()|EVERY CODING INTERVIEW EVER|O(n)|[Here](https://leetcode.com/problems/invert-binary-tree)|
 |Faster than O(nlogn) sorting algorithm|final_2015|O(d(n+b))|[Here](https://github.com/Pipp432/final/tree/main/Sorting/RadixSort)|
+|Hash Table Quadratic Probing|HW|-|[Here](https://github.com/Pipp432/final/blob/main/Hash/Hash%20Table%20HW_%20Quadratic%20probing.pdf)|
+|Hash Table Double Hasing|HW|-|[Here](https://github.com/Pipp432/final/blob/main/Hash/Hash%20Table_%20Double%20Hashing.pdf)|
+|Max-Heap Class|-|-|[Here](https://github.com/Pipp432/final/blob/main/Heap/MaxHeap.java)|
+|isHeap()|-|-|Heap.java|
+|makeHeap()|-|-|Heap.java|
