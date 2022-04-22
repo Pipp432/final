@@ -1,5 +1,5 @@
-# final
-Hello again friends! This is a java repo. for data sturcture and algorithm files.
+# Final
+Hello.
 # Table of contents
 | Topic/Problems | Source | Complexity | Where to find |
 |:----------------:|:--------:|:-------:|:---------------:|

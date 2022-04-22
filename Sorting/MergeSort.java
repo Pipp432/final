@@ -28,6 +28,8 @@ class MergeSort
         merge(inputArray,leftHalf,rightHalf);
     }
     private static void merge(int[] inputArray, int[] leftHalf,int[] rightHalf){
+        
+        
         int leftSize = leftHalf.length;
         int rightSize = rightHalf.length;
         // i will index the left, j the right and k the input arrays;
@@ -61,6 +63,7 @@ class MergeSort
             k++;
             j++;
         }
+       
         
     }
            
