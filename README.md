@@ -19,3 +19,4 @@ Hello.
 |Max-Heap Class|-|-|[Here](https://github.com/Pipp432/final/blob/main/Heap/MaxHeap.java)|
 |isHeap()|-|-|Heap.java|
 |makeHeap()|-|-|Heap.java|
+|Heap Deletion and insertion|final_2019|-|Heap.java|
