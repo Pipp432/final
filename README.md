@@ -20,3 +20,4 @@ Hello.
 |isHeap()|-|-|Heap.java|
 |makeHeap()|-|-|Heap.java|
 |Heap Deletion and insertion|final_2019|-|Heap.java|
+|Heap changeData()|final_2019|-|Heap.java|

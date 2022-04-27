@@ -2,7 +2,7 @@ package BST;
 
 import java.util.*;
 
-class BTreePrinter {
+public class BTreePrinter {
 
     public static void printNode(BSTNode root) {
         int maxLevel = BTreePrinter.maxLevel(root);

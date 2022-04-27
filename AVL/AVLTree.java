@@ -2,7 +2,7 @@ package AVL;
 
 import java.util.ArrayList;
 
-import BST.Iterator;
+import BST.*;
 
 public class AVLTree {
 	AVLNode root;
@@ -224,6 +224,12 @@ public class AVLTree {
 		AVLNode.updateHeight(n);
 		AVLNode.updateHeight(r);
 		return r;
+	}
+	public static void main(String args[]) throws Exception{
+		AVLTree tr = new AVLTree();
+		tr.insert(10);
+		
+		System.out.println(tr.isAVL());
 	}
 
 }

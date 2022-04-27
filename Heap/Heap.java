@@ -125,18 +125,36 @@ public class Heap{
 
         return false;
     }
+    public void changeData(int data, int index){
+        //? I will assume that when changing data the index can change to its correct position.
+        //? If this is not the case the whole array must change to fit the new data, which is impractical. 
+        // Overwrite the inital data
+        mData[index] = data;
+        // Check the left, right and parent
+        int left = 2*index+1;
+        int right = 2*index+2;
+        int parent = (index-1)/2;
+        // If the data is in correct position and presever the heap property exit 
+        if(mData[left]>data && mData[right]>data && mData[parent]<data) return;
+        // If not percolate the data down until such.
+        if(mData[left]<data ||mData[right]<data) percolateDown(index);
+        if(mData[parent]>data ){
+        
+            // I don't want to create boiler plate so instead an overloaded percolateUp() I will do a swap
+            int temp = mData[index];
+            mData[index] = mData[parent];
+            mData[parent] = temp;
+            
+        }
+    }
 
    
 
 
     public static void main(String[] args){
         ArrayPrinter ap = new ArrayPrinter();
-        int[] arr = { 1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17 };
-        ap.printArray(makeHeap(arr));
-        System.out.println(isHeap(makeHeap2(arr),0));
-        int[] arr2 = { 3, 1, 5, 4, 6, 13, 10, 9, 8, 15, 17 };
-        System.out.println(isHeap(arr, 0));
-        System.out.println(isHeap(arr2, 0));
+     
+       
        
         Heap heap = new Heap();
         heap.add(26);
@@ -150,6 +168,9 @@ public class Heap{
         heap.add(55);
         heap.add(57);
         heap.add(88);
+       ap.printArray(heap.mData);
+       heap.changeData(10, 1);
+       ap.printArray(heap.mData);
         // Heap heap2 = new Heap();
         // heap2.add(16);
         // heap2.add(30);

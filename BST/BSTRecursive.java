@@ -123,6 +123,43 @@ public class BSTRecursive {
 		}
 		return n;
 	}
+	public boolean isAVL() {
+		// My general idea is to do a recursive call on the 
+		//left and right subtrees until it hits a leaf.
+		
+		// Null case
+		 // If root (an empty tree) is null return true
+		if(root==null) return true;
+		
+		// Leaf cases
+		//Since a leaf (single node) is always an AVL tree it will return true
+		if(root!=null && root.left==null && root.right ==null) return true;
+		
+		// Create the left and right subtrees.
+		// Since the size of the sub tree are unpredictable, 
+		//I'll pass in the original tree size
+		BSTRecursive leftBST = new BSTRecursive(root.left,size);
+		BSTRecursive rightBST = new BSTRecursive(root.right,size);
+		
+		// If a specific node of the tree is AVL(The height difference is 1) 
+		//then check its left and right subtrees whether or not they are AVL
+		//, so a recursive call is made to traverse down the tree.
+		if(Math.abs(getHeight(root.left)-getHeight(root.right))<=1) {
+			return true && leftBST.isAVL() &&rightBST.isAVL();
+		}
+		return false;
+		
+		
+
+	}
+	public int getHeight(BSTNode node) {
+		// Get the height of a tree
+		if (node == null)
+			return -1;
+		int leftHeight = getHeight(node.left);
+		int rightHeight = getHeight(node.right);
+		return 1 + (leftHeight < rightHeight ? rightHeight : leftHeight);
+	}
 
 	// public static void main(String[] args) {
 	// 	BSTRecursive t2 = new BSTRecursive(null, 0);
