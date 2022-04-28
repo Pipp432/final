@@ -18,7 +18,7 @@ Hello.
 |Hash Table Double Hasing|HW|-|[Here](https://github.com/Pipp432/final/blob/main/Hash/Hash%20Table_%20Double%20Hashing.pdf)|
 |Max-Heap Class|-|-|[Here](https://github.com/Pipp432/final/blob/main/Heap/MaxHeap.java)|
 |isHeap()|-|-|Heap.java|
-|makeHeap()|-|-|Heap.java|
+|makeHeap3()|-|-|Heap.java|
 |Heap Deletion and insertion|final_2019|-|Heap.java|
 |Heap changeData()|final_2019|-|Heap.java|
 |isAVL()|HW|-|BSTRecursive.java|

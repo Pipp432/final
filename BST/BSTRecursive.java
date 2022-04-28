@@ -154,6 +154,8 @@ public class BSTRecursive {
 	}
 	public int getHeight(BSTNode node) {
 		// Get the height of a tree
+		// If null tree (empty tree) the height is -1
+		// If single node the height is 0
 		if (node == null)
 			return -1;
 		int leftHeight = getHeight(node.left);

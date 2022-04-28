@@ -135,3 +135,5 @@ Note that the current pivot is now in the sorted position.<br>
 #### Recursive Calls<br>
 
 The method will now be called for the left and right partition arrays until the whole array is sorted.
+## Heap Sort
+A Heap is sorted by nature 

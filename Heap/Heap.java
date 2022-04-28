@@ -101,7 +101,7 @@ public class Heap{
             result.add(e);
         }
         return result.mData;
-        // Time Complexity of O(nlogn): add takes logn the loop takes n
+        
     }
 
     public static int[]  makeHeap2(int[] a){
@@ -109,7 +109,38 @@ public class Heap{
        // This is working on a techniacallity a sorted array is min heap.
         QuickSort.quickSort(a, 0, a.length-1);
         return a;
-        // Time Complexity of O(nlogn): add takes logn the loop takes n
+       
+    }
+    public static int[] makeHeap3(int[] a){
+        //? This is probably the best solution
+        for(int i =a.length/2-1;i>=0;i--){  
+            heapify(a,a.length,i);
+
+        }
+        return a;
+    }
+    public static void heapify(int[] a,int size,int root){
+        int minimum = root;
+        int left = 2*root+1;
+        int right = 2*root+2;
+        if(left<size && a[left]<a[minimum]){
+            minimum =left;
+        }
+        if(right<size && a[right]<a[minimum]){
+            minimum =right;
+        }
+        if(minimum!=root){
+            int temp = a[root];
+            a[root] = a[minimum];
+            a[minimum] = temp;
+
+            heapify(a,size,minimum);
+        }
+        
+     
+        
+
+        
     }
     public static boolean isHeap(int[] a, int parent){
         int left = 2*parent+1;
@@ -117,7 +148,7 @@ public class Heap{
         if(a.length==0) return false;
         if(parent<0 || left<0||right<0) return false;
         if(left>right) return false;
-        if(left>a.length || right>a.length) return true;
+        if(left>=a.length || right>=a.length) return true;
         if(a[parent]<a[left] && a[parent]<a[right]){
             parent++;
             return isHeap(a,parent);
@@ -147,30 +178,35 @@ public class Heap{
             
         }
     }
-
+   
    
 
 
     public static void main(String[] args){
+        int[] arr = {7,4,13,3,10,5,12};
+        System.out.println(isHeap(arr,0));
+        Heap.makeHeap3(arr);
+        System.out.println(isHeap(arr,0));
         ArrayPrinter ap = new ArrayPrinter();
+        ap.printArray(arr);
      
        
        
-        Heap heap = new Heap();
-        heap.add(26);
-        heap.add(40);
-        heap.add(31);
-        heap.add(48);
-        heap.add(50);
-        heap.add(85);
-        heap.add(36);
-        heap.add(99);
-        heap.add(55);
-        heap.add(57);
-        heap.add(88);
-       ap.printArray(heap.mData);
-       heap.changeData(10, 1);
-       ap.printArray(heap.mData);
+    //     Heap heap = new Heap();
+    //     heap.add(26);
+    //     heap.add(40);
+    //     heap.add(31);
+    //     heap.add(48);
+    //     heap.add(50);
+    //     heap.add(85);
+    //     heap.add(36);
+    //     heap.add(99);
+    //     heap.add(55);
+    //     heap.add(57);
+    //     heap.add(88);
+    //    ap.printArray(heap.mData);
+    //    heap.changeData(10, 1);
+    //    ap.printArray(heap.mData);
         // Heap heap2 = new Heap();
         // heap2.add(16);
         // heap2.add(30);
