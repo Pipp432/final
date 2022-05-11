@@ -178,17 +178,37 @@ public class Heap{
             
         }
     }
+    public int calculateMaxIndex(){
+        // Since the min heap must have its maximum data as a leaf
+        // We can ignore the nodes in between
+        // Intialize the result as the middle value
+        int maximum = mData[mData.length/2];
+
+        // Our for loop will start at the middle index since all index before that are not leaves.
+        // It can be proved that leaf nodes of a heap starts at n/2 + 1 until n
+        // https://rishi-a.github.io/2018/04/03/starting-index-of-heap.html , it's a proof by contradiction
+        for(int i = mData.length/2 +1;i<mData.length;i++){
+            if(mData[i]>maximum){
+                maximum = mData[i];
+            }
+        }
+        return maximum;
+
+
+    }
    
    
 
 
     public static void main(String[] args){
-        int[] arr = {3,2,1,5,6,4};
+        int[] arr = {54,243,53,876,59,4,6,8,2,1};
         System.out.println(isHeap(arr,0));
         Heap.makeHeap3(arr);
         ArrayPrinter ap = new ArrayPrinter();
         ap.printArray(arr);
-        System.out.println();
+        Heap heap = new Heap();
+        heap.mData = arr;
+        System.out.println(heap.calculateMaxIndex());
      
        
        
