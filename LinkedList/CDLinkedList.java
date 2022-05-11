@@ -276,19 +276,36 @@ public class CDLinkedList {
 
 		
 	}
-	public void mergeSort(CDLinkedList head) throws Exception{
+	
+	
+
+	
+	public void quickSort(DListIterator low, DListIterator high) throws Exception{
+		if(low.currentNode == high.currentNode) return;
+		DListIterator pivot = new DListIterator(high.currentNode);
+		DListIterator leftPointer = new DListIterator(low.currentNode);
+		DListIterator rightPointer = new DListIterator(high.currentNode);
+
+		while(leftPointer.currentNode!=rightPointer.currentNode ){
+			while(leftPointer.currentNode.data<= pivot.currentNode.data && leftPointer.currentNode != rightPointer.currentNode ){
+				leftPointer.next();
+			}
+			while(rightPointer.currentNode.data>=pivot.currentNode.data && leftPointer.currentNode != rightPointer.currentNode ){
+				rightPointer.previous();
+			}
+			swap(leftPointer,rightPointer);
 		
+		}
+		swap(leftPointer,high);
 
-	}
-	void merge(CDLinkedList head, CDLinkedList leftHalf, CDLinkedList rightHalf) throws Exception{
-	
-	}
-
-	
-
-	
-	public void quickSort(){
+		quickSort(low, new DListIterator(leftPointer.currentNode.previousNode));
+		quickSort(new DListIterator(leftPointer.currentNode),high);
 		
+	}
+	public void swap( DListIterator pointer1, DListIterator pointer2){
+		int temp = pointer1.currentNode.data;
+		pointer1.currentNode.data = pointer2.currentNode.data;
+		pointer2.currentNode.data = temp;
 	}
 	
 	
