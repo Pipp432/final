@@ -197,37 +197,44 @@ public class Heap{
 
     }
     public void removeValue(int value) throws Exception{
-        int indexOfRemove=0;
+        int indexOfRemove = 10;
         for(int i=0;i<mData.length;i++){
             if(mData[i]==value && i<mData.length-1){
+                
                 indexOfRemove = i;
                 break;
               
             }
-            if(mData[i]!=value && i<mData.length) return;
+            
            
         } 
+        System.out.println(indexOfRemove);
         if(indexOfRemove<mData.length/2+1 && indexOfRemove!=0){
-          
+            System.out.println(mData.length);
             if(2*indexOfRemove+1<mData.length && 2*indexOfRemove+2<mData.length){
+                System.out.println("1");
                 if(mData[2*indexOfRemove+1]<mData[2*indexOfRemove+2]){
                     mData[indexOfRemove] = mData[2*indexOfRemove+1];
                     mData[2*indexOfRemove+1] = 0;
                     size--;
                 }else{
+                    System.out.println("2");
                     mData[indexOfRemove] = mData[2*indexOfRemove+2];
                     mData[2*indexOfRemove+2] = 0;
                     size--;
                 }
                 
             }
-            if(2*indexOfRemove+1<mData.length && 2*indexOfRemove+2>mData.length){
+        
+            if(2*indexOfRemove+1<mData.length && 2*indexOfRemove+2>=mData.length){
+                System.out.println("3");
                 mData[indexOfRemove] = mData[2*indexOfRemove+1];
                 mData[2*indexOfRemove+1] = 0;
                 size--;
             }
         }
         if(indexOfRemove>mData.length/2+1){
+            System.out.println("4");
             mData[indexOfRemove] =0;
             size--;
 
@@ -242,7 +249,7 @@ public class Heap{
    
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
         int[] arr = {54,243,53,876,59,4,6,8,2,1};
         System.out.println(isHeap(arr,0));
         Heap.makeHeap3(arr);
@@ -250,7 +257,10 @@ public class Heap{
         ap.printArray(arr);
         Heap heap = new Heap();
         heap.mData = arr;
-        System.out.println(heap.calculateMaxIndex());
+        heap.removeValue(59);
+        System.out.println(isHeap(heap.mData, 0));
+      
+        ap.printArray(arr);
      
        
        
