@@ -26,7 +26,7 @@ public class Main {
         }
         // System.out.println(q.currentNode.data);
 
-        list.quickSort(s,q);
+        list.quickSort();
       
          
          list.printList();
