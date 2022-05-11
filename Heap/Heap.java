@@ -196,6 +196,48 @@ public class Heap{
 
 
     }
+    public void removeValue(int value) throws Exception{
+        int indexOfRemove=0;
+        for(int i=0;i<mData.length;i++){
+            if(mData[i]==value && i<mData.length-1){
+                indexOfRemove = i;
+                break;
+              
+            }
+            if(mData[i]!=value && i<mData.length) return;
+           
+        } 
+        if(indexOfRemove<mData.length/2+1 && indexOfRemove!=0){
+          
+            if(2*indexOfRemove+1<mData.length && 2*indexOfRemove+2<mData.length){
+                if(mData[2*indexOfRemove+1]<mData[2*indexOfRemove+2]){
+                    mData[indexOfRemove] = mData[2*indexOfRemove+1];
+                    mData[2*indexOfRemove+1] = 0;
+                    size--;
+                }else{
+                    mData[indexOfRemove] = mData[2*indexOfRemove+2];
+                    mData[2*indexOfRemove+2] = 0;
+                    size--;
+                }
+                
+            }
+            if(2*indexOfRemove+1<mData.length && 2*indexOfRemove+2>mData.length){
+                mData[indexOfRemove] = mData[2*indexOfRemove+1];
+                mData[2*indexOfRemove+1] = 0;
+                size--;
+            }
+        }
+        if(indexOfRemove>mData.length/2+1){
+            mData[indexOfRemove] =0;
+            size--;
+
+        }
+        if(indexOfRemove==0){
+            pop();
+        }
+
+
+    }
    
    
 
