@@ -183,12 +183,12 @@ public class Heap{
 
 
     public static void main(String[] args){
-        int[] arr = {7,4,13,3,10,5,12};
+        int[] arr = {3,2,1,5,6,4};
         System.out.println(isHeap(arr,0));
         Heap.makeHeap3(arr);
-        System.out.println(isHeap(arr,0));
         ArrayPrinter ap = new ArrayPrinter();
         ap.printArray(arr);
+        System.out.println();
      
        
        

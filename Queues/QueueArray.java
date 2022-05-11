@@ -91,5 +91,30 @@ public class QueueArray implements MyQueue {
 		int d = (0)%5;
 		System.out.println(d);
 	}
+	public void selectionSort() throws EmptyQueueException{
+		if(isEmpty()) return;
+		QueueArray temp = new QueueArray();
+		int past = Integer.MIN_VALUE;
+		for(int i = 0;i<size;i++){
+			if(past>front()){
+			while(front()!=past){
+				insertLast(removeFirst());
+			}
+			temp.insertLast(this.removeFirst());
+			this.insertLast(this.removeFirst());
+			this.insertLast(temp.removeFirst());
 
-}
+		}else{
+			past = front();
+			insertLast(removeFirst());
+		}
+		}
+		
+		
+			
+		
+		}
+		
+	}
+
+

@@ -3,6 +3,8 @@ package AVL;
 import java.util.ArrayList;
 
 import BST.*;
+import LinkedList.CDLinkedList;
+import LinkedList.DListIterator;
 
 public class AVLTree {
 	AVLNode root;
@@ -225,11 +227,25 @@ public class AVLTree {
 		AVLNode.updateHeight(r);
 		return r;
 	}
+	public static AVLTree CDLinkedListToAVL(CDLinkedList list) throws Exception{
+		AVLTree result = new AVLTree();
+		DListIterator iter = new DListIterator(list.header.nextNode);
+		while(iter.currentNode!=list.header){
+			result.insert(iter.currentNode.data);
+			iter.next();
+		}
+		return result;
+	}
 	public static void main(String args[]) throws Exception{
-		AVLTree tr = new AVLTree();
-		tr.insert(10);
-		
-		System.out.println(tr.isAVL());
+		CDLinkedList list = new CDLinkedList();
+		list.insert(10, new DListIterator(list.header));
+		list.insert(6, new DListIterator(list.header));
+		list.insert(13, new DListIterator(list.header));
+		list.insert(11, new DListIterator(list.header));
+		list.insert(2, new DListIterator(list.header));
+		list.insert(15, new DListIterator(list.header));
+		AVLTree result = CDLinkedListToAVL(list);
+		System.out.println(result.isAVL());
 	}
 
 }
