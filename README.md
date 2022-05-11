@@ -25,3 +25,4 @@ Hello.
 |Doubly Linked List sorting algorithms|HW|-|CDLinkedList.java|
 |CalculateMaxIndex()|Prof's book|-|Heap.java|
 |RemoveValue()|Prof's book|-|Heap.java|
+|Recursive Insertion Sort|Prof's book|-|Heap.java|
