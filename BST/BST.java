@@ -2,6 +2,9 @@ package BST;
 
 import java.util.ArrayList;
 
+import LinkedList.CDLinkedList;
+import LinkedList.DListIterator;
+
 public class BST {
 	BSTNode root;
 	int size;
@@ -282,9 +285,27 @@ public class BST {
 
 	}
 	
+	public int getHeight(BSTNode node) {
+		// Get the height of a tree
+		if (node == null)
+			return -1;
+		int leftHeight = getHeight(node.left);
+		int rightHeight = getHeight(node.right);
+		//Returns the height of the tree by 
+		//comparing the height of the left and right subtrees
+		return 1 + (leftHeight < rightHeight ? rightHeight : leftHeight);
+	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		BSTNode r = new BSTNode(7);
+		CDLinkedList list = new CDLinkedList();
+		list.insert(4, new DListIterator(list.header));
+		list.insert(7, new DListIterator(list.header));
+		list.insert(5, new DListIterator(list.header));
+		list.insert(11, new DListIterator(list.header));
+		list.insert(9, new DListIterator(list.header));
+		list.insert(10, new DListIterator(list.header));
+		
 		BST t = new BST(r, 1);
 		t.insert(3);
 		t.insert(1);
@@ -295,8 +316,8 @@ public class BST {
 		t.insert(6);
 
 		
-		BTreePrinter.printNode(t.root);
-		BTreePrinter.printNode(t.invert(t.root));
+		
+		
 	}
 
 	// 	System.out.println("Now, remove 2.");
