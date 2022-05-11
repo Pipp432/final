@@ -279,8 +279,17 @@ public class CDLinkedList {
 	
 	
 
-	
-	public void quickSort(DListIterator low, DListIterator high) throws Exception{
+	public void quickSort() throws Exception{
+		DListIterator low = new DListIterator(this.header);
+		DListIterator high = new DListIterator(header);
+		while(high.currentNode.nextNode!=this.header){
+			high.next();
+		}
+		//System.out.println(low.currentNode.data);
+		
+		quickSort(low, high);
+	}
+	private void quickSort(DListIterator low, DListIterator high) throws Exception{
 		if(low.currentNode == high.currentNode) return;
 		DListIterator pivot = new DListIterator(high.currentNode);
 		DListIterator leftPointer = new DListIterator(low.currentNode);

@@ -16,11 +16,17 @@ public class Main {
         list.insert(0, p);
         p.next();
         list.insert(9, p);
+        p.next();
+        list.insert(-1, p);
+        p.next();
+        list.insert(17, p);
+        
         while(q.currentNode.nextNode!= list.header){
             q.next();
         }
+        // System.out.println(q.currentNode.data);
 
-        list.quickSort(s, q);
+        list.quickSort(s,q);
       
          
          list.printList();
