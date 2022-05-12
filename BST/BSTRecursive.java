@@ -242,6 +242,12 @@ public class BSTRecursive {
 		System.out.print(" "+node.data);
 		inOrderTraversal(node.right);
 	}
+	public void reverseInOrderTraversal(BSTNode node){
+		if(node==null) return;
+		reverseInOrderTraversal(node.right);
+		System.out.print(" "+node.data);
+		reverseInOrderTraversal(node.left);
+	}
 
 	public void preOrderTraversal(BSTNode node){
 		if(node==null) return;
@@ -296,19 +302,19 @@ public class BSTRecursive {
 		
 		
 		BTreePrinter.printNode(t.root);
-		BSTNode node = t.deepCopyTree(t.root);
-		BTreePrinter.printNode(node);
-		BST b = new BST(node, 0);
-		b.invert(b.root);
-		BTreePrinter.printNode(b.root);
+		// BSTNode node = t.deepCopyTree(t.root);
+		// BTreePrinter.printNode(node);
+		// BST b = new BST(node, 0);
+		// b.invert(b.root);
+		// BTreePrinter.printNode(b.root);
 		// System.out.println(t.getHeight(t.root));
 		// BSTNode node = t.createMirror();
 		// BTreePrinter.printNode(node);
 		// BTreePrinter.printNode(t.invert(t.root));
-		int[] arr  = {1,2,3,4,5,6,7,8,9};
-		BSTNode node1 = BSTRecursive.sortedArrayToAVL(arr,0,arr.length-1);
-		BTreePrinter.printNode(node1);
-
+		// int[] arr  = {1,2,3,4,5,6,7,8,9};
+		// BSTNode node1 = BSTRecursive.sortedArrayToAVL(arr,0,arr.length-1);
+		// BTreePrinter.printNode(node1);
+		t.reverseInOrderTraversal(t.root);
 		
 		
 	}
