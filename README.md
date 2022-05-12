@@ -31,3 +31,4 @@ Hello.
 |isLeaf()|Prof's book|-|BSTRecursive.java|
 |All tree traversal methods|Prof's book|-|BSTRecursive.java|
 |Tree Deep Copy|-|-|BSTRecursive.java|
+|SortedArrayToAVL()|GeekForGeeks.com|O(n)|BSTRecursive.java|
