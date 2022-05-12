@@ -1,5 +1,3 @@
-
-
 package BST;
 
 public class BSTRecursive {
@@ -186,23 +184,84 @@ public class BSTRecursive {
 		return true;
 
 	}
-	public static void main(String[] args) {
+	
+
+
+	
+	public int recursiveNumLeaves(BSTNode node){
+		if(node==null) return 0;
+		if(node.left==null && node.right==null) return 1;
+		return recursiveNumLeaves(node.left) + recursiveNumLeaves(node.right);
+	}
+	public int maxNumberNode(){
+		if(this.root==null) return -1;
+		int height = this.getHeight(root);
+		int total = 0;
+		for(int i = -1;i<height;i++){
+			total+=(int)(Math.pow(2, i+1));
+		}
+		return total;
+	}
+	public BSTNode invert(BSTNode root){
+		// Base case
+		if(root== null) return root;
+
+		// Tree traversal
+		// Invert the subtress until the reaching the leafs.
+		BSTNode left = invert(root.left);
+		BSTNode right = invert(root.right);
+		// swap
+		root.right = left;
+		root.left = right;
+		return root;
+
+	}
+	public BSTNode createMirror(){
+		BSTNode root = new BSTNode(this.root.data);
+		createMirror(root,this.root);
+		return root;
+	}
+	public void createMirror(BSTNode node,BSTNode originalRoot){
+		if(node==null||originalRoot==null) return;
+		
+		if(originalRoot.right!=null){
+			node.left = new BSTNode(originalRoot.right.data);
+			createMirror(node.left,originalRoot.right);
+		}
+		if(originalRoot.left!=null){
+			node.right = new BSTNode(originalRoot.left.data);
+			createMirror(node.right,originalRoot.left);
+		}
+		
+	
+		
+
+		
+
+
+	}
+	public static void main(String[] args) throws Exception {
 		BSTRecursive t2 = new BSTRecursive(null, 0);
 		t2.insert(1);
 		t2.insert(5);
 		BTreePrinter.printNode(t2.root);
 
 		BSTNode r = new BSTNode(7);
-		BSTNode p = new BSTNode(10);
-		BSTRecursive t = new BSTRecursive(r, 1);
+		BSTRecursive t = new BSTRecursive(r, 2);
 		t.insert(3);
-		t.insert(1);
-		t.insert(11);
-		t.insert(2);
+		t.insert(10);
 		t.insert(9);
-		t.insert(6);
+		t.insert(1);
+		
+		t.insert(11);
+		
+		
 		BTreePrinter.printNode(t.root);
-		System.out.println(BSTRecursive.isLeaf(t.root.right.left));
+		
+		// System.out.println(t.getHeight(t.root));
+		BSTNode node = t.createMirror();
+		BTreePrinter.printNode(node);
+		BTreePrinter.printNode(t.invert(t.root));
 		
 	}
 
