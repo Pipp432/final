@@ -162,22 +162,49 @@ public class BSTRecursive {
 		int rightHeight = getHeight(node.right);
 		return 1 + (leftHeight < rightHeight ? rightHeight : leftHeight);
 	}
+	public static boolean isValidBST(BSTNode root) {
+        return isValidBST(root,null,null);
+    }
+    static boolean isValidBST(BSTNode root, Integer min, Integer max){
+        if(root==null){
+            return true;
+        }
+		
+		// If any data in the right subtree is less than the root then its not a BST
+        if(min!=null && root.data<=min) return false;
+		// If any data in the right subtree is more than the root then its not a BST
+        if(max!=null && root.data>=max) return false;
+        
+		// Recursive call
+		// Make the root data be the maximum for the left subtree
+		// Make the root data be the minimum for the right subtree
+        return isValidBST(root.left,min,root.data) && isValidBST(root.right,root.data,max);
+    }
+	public static boolean isLeaf(BSTNode node){
+		if(node==null) return false;
+		if(node.left !=null || node.right != null) return false;
+		return true;
 
-	// public static void main(String[] args) {
-	// 	BSTRecursive t2 = new BSTRecursive(null, 0);
-	// 	t2.insert(1);
-	// 	t2.insert(5);
-	// 	BTreePrinter.printNode(t2.root);
+	}
+	public static void main(String[] args) {
+		BSTRecursive t2 = new BSTRecursive(null, 0);
+		t2.insert(1);
+		t2.insert(5);
+		BTreePrinter.printNode(t2.root);
 
-	// 	BSTNode r = new BSTNode(7);
-	// 	BSTRecursive t = new BSTRecursive(r, 1);
-	// 	t.insert(3);
-	// 	t.insert(1);
-	// 	t.insert(11);
-	// 	t.insert(2);
-	// 	t.insert(5);
-	// 	t.insert(9);
-	// 	t.insert(6);
+		BSTNode r = new BSTNode(7);
+		BSTNode p = new BSTNode(10);
+		BSTRecursive t = new BSTRecursive(r, 1);
+		t.insert(3);
+		t.insert(1);
+		t.insert(11);
+		t.insert(2);
+		t.insert(9);
+		t.insert(6);
+		BTreePrinter.printNode(t.root);
+		System.out.println(BSTRecursive.isLeaf(t.root.right.left));
+		
+	}
 
 	// 	t.insert(0);
 	// 	t.insert(8);
