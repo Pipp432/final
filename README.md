@@ -27,4 +27,4 @@ Hello.
 |RemoveValue()|Prof's book|-|Heap.java|
 |recursiveNumLeaves()|Prof's book|-|BSTRecursive.java|
 |maxNode()|Prof's book|-|BSTRecursive.java|
-|createMirror|Prof's book|-s|BSTRecursive.java|
+|createMirror()|Prof's book|-s|BSTRecursive.java|
