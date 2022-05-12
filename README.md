@@ -28,3 +28,5 @@ Hello.
 |recursiveNumLeaves()|Prof's book|-|BSTRecursive.java|
 |maxNode()|Prof's book|-|BSTRecursive.java|
 |createMirror()|Prof's book|-|BSTRecursive.java|
+|isLeaf()|Prof's book|-|BSTRecursive.java|
+|All tree traversal methods|Prof's book|-|BSTRecursive.java|

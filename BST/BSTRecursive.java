@@ -232,12 +232,27 @@ public class BSTRecursive {
 			node.right = new BSTNode(originalRoot.left.data);
 			createMirror(node.right,originalRoot.left);
 		}
-		
-	
-		
 
-		
+	}
+	public void inOrderTraversal(BSTNode node){
+		if(node==null) return;
+		inOrderTraversal(node.left);
+		System.out.print(" "+node.data);
+		inOrderTraversal(node.right);
 
+	}public void preOrderTraversal(BSTNode node){
+		if(node==null) return;
+		System.out.print(" "+node.data);
+		preOrderTraversal(node.left);
+		preOrderTraversal(node.right);
+
+	}
+	public void postOrderTraversal(BSTNode node){
+		if(node==null) return;
+		postOrderTraversal(node.left);
+		postOrderTraversal(node.right);
+		System.out.print(" "+node.data);
+		
 
 	}
 	public static void main(String[] args) throws Exception {
@@ -252,16 +267,17 @@ public class BSTRecursive {
 		t.insert(10);
 		t.insert(9);
 		t.insert(1);
-		
+		t.insert(5);
 		t.insert(11);
 		
 		
 		BTreePrinter.printNode(t.root);
 		
 		// System.out.println(t.getHeight(t.root));
-		BSTNode node = t.createMirror();
-		BTreePrinter.printNode(node);
-		BTreePrinter.printNode(t.invert(t.root));
+		// BSTNode node = t.createMirror();
+		// BTreePrinter.printNode(node);
+		// BTreePrinter.printNode(t.invert(t.root));
+		t.postOrderTraversal(t.root);
 		
 	}
 
