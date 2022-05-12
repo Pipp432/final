@@ -1,5 +1,8 @@
 package BST;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BSTRecursive {
 
 	BSTNode root;
@@ -271,6 +274,20 @@ public class BSTRecursive {
 		postOrderTraversal(node.right);
 		System.out.print(" "+node.data);
 	}
+	public void breadthFirstTraversal(){
+		Queue<BSTNode> q = new LinkedList<BSTNode>();
+		q.add(root);
+		while(!q.isEmpty()){
+			BSTNode temp = q.poll();
+			System.out.print(temp.data+" ");
+			
+			if(temp.left!=null) q.add(temp.left);
+			if(temp.right!=null) q.add(temp.right);
+		}
+			
+		
+
+	}
 	public static BSTNode sortedArrayToAVL(int[] array, int startIndex, int endIndex){
 		
 		if(startIndex>endIndex) return null;
@@ -314,7 +331,8 @@ public class BSTRecursive {
 		// int[] arr  = {1,2,3,4,5,6,7,8,9};
 		// BSTNode node1 = BSTRecursive.sortedArrayToAVL(arr,0,arr.length-1);
 		// BTreePrinter.printNode(node1);
-		t.reverseInOrderTraversal(t.root);
+		// t.reverseInOrderTraversal(t.root);
+		t.breadthFirstTraversal();
 		
 		
 	}
