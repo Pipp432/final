@@ -216,7 +216,7 @@ public class BSTRecursive {
 		return root;
 
 	}
-	
+
 	public BSTNode createMirror(){
 		BSTNode root = new BSTNode(this.root.data);
 		createMirror(root,this.root);
@@ -265,6 +265,20 @@ public class BSTRecursive {
 		postOrderTraversal(node.right);
 		System.out.print(" "+node.data);
 	}
+	public static BSTNode sortedArrayToAVL(int[] array, int startIndex, int endIndex){
+		
+		if(startIndex>endIndex) return null;
+		int middle = (endIndex+startIndex)/2;
+		BSTNode root = new BSTNode(array[middle]);
+	
+
+		root.left = sortedArrayToAVL(array,startIndex,middle-1);
+		root.right = sortedArrayToAVL(array,middle+1,endIndex);
+		return root;
+
+
+
+	}
 	public static void main(String[] args) throws Exception {
 		BSTRecursive t2 = new BSTRecursive(null, 0);
 		t2.insert(1);
@@ -291,6 +305,10 @@ public class BSTRecursive {
 		// BSTNode node = t.createMirror();
 		// BTreePrinter.printNode(node);
 		// BTreePrinter.printNode(t.invert(t.root));
+		int[] arr  = {1,2,3,4,5,6,7,8,9};
+		BSTNode node1 = BSTRecursive.sortedArrayToAVL(arr,0,arr.length-1);
+		BTreePrinter.printNode(node1);
+
 		
 		
 	}
