@@ -1,7 +1,5 @@
 package LinkedList;
 
-import javax.swing.JSpinner.ListEditor;
-
 public class Main {
     public static void main(String args[] ) throws Exception{
         CDLinkedList list1 = new CDLinkedList();
@@ -19,7 +17,7 @@ public class Main {
         //  list1.printList();
         // list2.printList();
         // System.out.println();   
-        CDLinkedList.mergesort(list1);
+        list1.insertionSort();
         list1.printList();
 
         
