@@ -298,10 +298,27 @@ public class BSTRecursive {
 		root.left = sortedArrayToAVL(array,startIndex,middle-1);
 		root.right = sortedArrayToAVL(array,middle+1,endIndex);
 		return root;
-
-
-
 	}
+	public int maxDepth(BSTNode node){
+		if(node ==null) return 0;
+		
+		int l = maxDepth(node.left);
+	
+		int r  = maxDepth(node.right);
+		
+		return 1+ Math.max(l,r);
+	}
+	public boolean hasPathSum(BSTNode node, int num){
+		if(node ==null) return false;
+		int current = node.data;
+		if(current == num && node.left==null && node.right ==null) return true;
+		if(node.left==null && node.right ==null && current!=num) return false;
+		int remianing = num-current;
+		return hasPathSum(node.left, remianing)|| hasPathSum(node.right, remianing);
+	}
+
+	
+	
 	public static void main(String[] args) throws Exception {
 		BSTRecursive t2 = new BSTRecursive(null, 0);
 		t2.insert(1);
@@ -332,7 +349,8 @@ public class BSTRecursive {
 		// BSTNode node1 = BSTRecursive.sortedArrayToAVL(arr,0,arr.length-1);
 		// BTreePrinter.printNode(node1);
 		// t.reverseInOrderTraversal(t.root);
-		t.breadthFirstTraversal();
+		// t.breadthFirstTraversal();
+		System.out.println(t.maxDepth(t.root));
 		
 		
 	}

@@ -32,3 +32,4 @@ Hello.
 |All tree traversal methods|Prof's book|-|BSTRecursive.java|
 |Tree Deep Copy|-|-|BSTRecursive.java|
 |SortedArrayToAVL()|GeekForGeeks.com|O(n)|BSTRecursive.java|
+|hasPathSum()|GeekForGeeks.com|O(nlogn)|BSTRecursive.java|
