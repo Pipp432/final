@@ -137,10 +137,6 @@ public class Heap{
             heapify(a,size,minimum);
         }
         
-     
-        
-
-        
     }
     public static boolean isHeap(int[] a, int parent){
         int left = 2*parent+1;
@@ -208,9 +204,9 @@ public class Heap{
             
            
         } 
-        System.out.println(indexOfRemove);
+        // System.out.println(indexOfRemove);
         if(indexOfRemove<mData.length/2+1 && indexOfRemove!=0){
-            System.out.println(mData.length);
+            // System.out.println(mData.length);
             if(2*indexOfRemove+1<mData.length && 2*indexOfRemove+2<mData.length){
                 System.out.println("1");
                 if(mData[2*indexOfRemove+1]<mData[2*indexOfRemove+2]){
@@ -218,7 +214,7 @@ public class Heap{
                     mData[2*indexOfRemove+1] = 0;
                     size--;
                 }else{
-                    System.out.println("2");
+                    // System.out.println("2");
                     mData[indexOfRemove] = mData[2*indexOfRemove+2];
                     mData[2*indexOfRemove+2] = 0;
                     size--;
@@ -227,14 +223,14 @@ public class Heap{
             }
         
             if(2*indexOfRemove+1<mData.length && 2*indexOfRemove+2>=mData.length){
-                System.out.println("3");
+                // System.out.println("3");
                 mData[indexOfRemove] = mData[2*indexOfRemove+1];
                 mData[2*indexOfRemove+1] = 0;
                 size--;
             }
         }
         if(indexOfRemove>mData.length/2+1){
-            System.out.println("4");
+            // System.out.println("4");
             mData[indexOfRemove] =0;
             size--;
 
@@ -245,22 +241,36 @@ public class Heap{
 
 
     }
+    public static int findKthLargest(int[] nums, int k) throws Exception {
+        Heap heap = new Heap();
+        for(int e : nums){
+            heap.add(e);
+        }
+        
+        while(heap.size()>k){
+          
+            heap.pop();
+        }
+        return heap.top();
+        
+    }
    
    
 
 
     public static void main(String[] args) throws Exception{
         int[] arr = {54,243,53,876,59,4,6,8,2,1};
-        System.out.println(isHeap(arr,0));
+        // System.out.println(isHeap(arr,0));
         Heap.makeHeap3(arr);
         ArrayPrinter ap = new ArrayPrinter();
         ap.printArray(arr);
         Heap heap = new Heap();
         heap.mData = arr;
-        heap.removeValue(59);
-        System.out.println(isHeap(heap.mData, 0));
+        heap.size = arr.length;
+        
+         System.out.println(findKthLargest(arr, 1));
       
-        ap.printArray(arr);
+         ap.printArray(arr);
      
        
        
