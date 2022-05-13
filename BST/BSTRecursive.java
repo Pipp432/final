@@ -1,5 +1,6 @@
 package BST;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -316,7 +317,24 @@ public class BSTRecursive {
 		int remianing = num-current;
 		return hasPathSum(node.left, remianing)|| hasPathSum(node.right, remianing);
 	}
-
+	public int maxSum(BSTNode node){
+		return maxSum(node,0);
+	}
+	public int maxSum(BSTNode node,int current){
+		current+=node.data;
+		if(node.right!=null){
+			node = node.right;
+			return maxSum(node, current);
+		}
+		return current;
+	}
+	public int lowestCommonNode(BSTNode root, BSTNode p,BSTNode q){
+		if(p.data<root.data && q.data<root.data) return lowestCommonNode(root.left, p, q);
+		if(p.data>root.data && q.data>root.data) return lowestCommonNode(root.right, p, q);
+		return root.data;
+	}
+	
+	
 	
 	
 	public static void main(String[] args) throws Exception {
@@ -340,7 +358,7 @@ public class BSTRecursive {
 		// BTreePrinter.printNode(node);
 		// BST b = new BST(node, 0);
 		// b.invert(b.root);
-		// BTreePrinter.printNode(b.root);
+		//  BTreePrinter.printNode(t.root);
 		// System.out.println(t.getHeight(t.root));
 		// BSTNode node = t.createMirror();
 		// BTreePrinter.printNode(node);
@@ -350,7 +368,7 @@ public class BSTRecursive {
 		// BTreePrinter.printNode(node1);
 		// t.reverseInOrderTraversal(t.root);
 		// t.breadthFirstTraversal();
-		System.out.println(t.maxDepth(t.root));
+		System.out.println(t.maxSum(t.root, 0));
 		
 		
 	}
