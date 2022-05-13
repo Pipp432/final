@@ -139,7 +139,7 @@ public class CDLinkedList {
 		while (itr.hasNext()) {
 			Object data = itr.next();
 
-			System.out.println(data);
+			System.out.print(" "+data);
 			if(((DListIterator)itr).currentNode.nextNode==header){
 				break;
 
@@ -316,8 +316,71 @@ public class CDLinkedList {
 		pointer1.currentNode.data = pointer2.currentNode.data;
 		pointer2.currentNode.data = temp;
 	}
+	public static void mergesort(CDLinkedList list) throws Exception{
+		if(list==null) return;
+		int inputLength = list.size;
+		if(inputLength<2) return;
+		
+		int midIndex = inputLength/2;
+		CDLinkedList list1 = new CDLinkedList();
+		CDLinkedList list2 = new CDLinkedList();
+		DListIterator iter1 = new DListIterator(list1.header);
+		DListIterator iter2 = new DListIterator(list2.header);
+		DListIterator iter = new DListIterator(list.header.nextNode);
+		for(int i =0;i<midIndex;i++){
+			list1.insert(iter.currentNode.data, iter1);
+			iter1.next();
+			iter.next();
+		}
+		
+		for(int i =midIndex;i<inputLength;i++){
+			list2.insert(iter.currentNode.data, iter2);
+			iter2.next();
+			iter.next();
+		}
+		
+		mergesort(list1);
+		mergesort(list2);
+		mergeLinkedList(list,list1, list2);
+
 	
+	}
 	
+	public static void mergeLinkedList(CDLinkedList list,CDLinkedList list1, CDLinkedList list2) throws Exception{
+		
+		DListIterator iter1  = new DListIterator(list1.header.nextNode);
+		DListIterator iter2 = new DListIterator(list2.header.nextNode);
+		DListIterator iter3 = new DListIterator(list.header.nextNode);
+		while(iter1.currentNode!=list1.header && iter2.currentNode!=list2.header){
+			if(iter1.currentNode.data<=iter2.currentNode.data){
+				iter3.currentNode.data = iter1.currentNode.data;
+				// System.out.println("iter1 "+iter1.currentNode.data);
+				iter1.next();
+				
+			}
+			else{
+				iter3.currentNode.data = iter2.currentNode.data;
+				// System.out.println("iter2 "+iter2.currentNode.data);
+				iter2.next();
+				
+
+			}
+			iter3.next();
+
+		}
+		while(iter1.currentNode!=list1.header){
+			iter3.currentNode.data = iter1.currentNode.data;
+				iter1.next();
+				iter3.next();
+		}
+		while(iter2.currentNode!=list2.header){
+			iter3.currentNode.data = iter2.currentNode.data;
+				iter2.next();
+				iter3.next();
+		}
+		
+
+	}
 	
 
 }

@@ -1,35 +1,27 @@
 package LinkedList;
 
+import javax.swing.JSpinner.ListEditor;
+
 public class Main {
     public static void main(String args[] ) throws Exception{
-        CDLinkedList list = new CDLinkedList();
-        DListIterator p = new DListIterator(list.header);
-        DListIterator s = new DListIterator(list.header.nextNode);
-        DListIterator q = new DListIterator(list.header);
-        p.next();
-        list.insert(10, p);
-        p.next();
-        list.insert(11, p);
-        p.next();
-        list.insert(2, p);
-        p.next();
-        list.insert(0, p);
-        p.next();
-        list.insert(9, p);
-        p.next();
-        list.insert(-1, p);
-        p.next();
-        list.insert(17, p);
-        
-        while(q.currentNode.nextNode!= list.header){
-            q.next();
-        }
-        // System.out.println(q.currentNode.data);
+        CDLinkedList list1 = new CDLinkedList();
+        CDLinkedList list2 = new CDLinkedList();
+        list1.insert(2, new DListIterator(list1.header));
+        list1.insert(4, new DListIterator(list1.header));
+        list1.insert(5, new DListIterator(list1.header));
+        list1.insert(7, new DListIterator(list1.header));
+        list1.insert(1, new DListIterator(list1.header));
+        list2.insert(10, new DListIterator(list2.header));
+        list2.insert(8, new DListIterator(list2.header));
+        list2.insert(6, new DListIterator(list2.header));
+        list2.insert(4, new DListIterator(list2.header));
+        list2.insert(2, new DListIterator(list2.header));
+        //  list1.printList();
+        // list2.printList();
+        // System.out.println();   
+        CDLinkedList.mergesort(list1);
+        list1.printList();
 
-        list.quickSort();
-      
-         
-         list.printList();
         
        
     }
