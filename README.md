@@ -20,8 +20,7 @@ Hello.
 |isHeap()|-|-|Heap.java|
 |makeHeap3()|-|-|Heap.java|
 |Heap Deletion and insertion|final_2019|-|Heap.java|
-|Heap changeData()|final_2019|-|Heap.java|
-|isAVL()|HW|-|BSTRecursive.java|
+|Heap changeData()|final_2019|-|Heap.java|f
 |Doubly Linked List sorting algorithms|HW|-|CDLinkedList.java|
 |CalculateMaxIndex()|Prof's book|-|Heap.java|
 |RemoveValue()|Prof's book|-|Heap.java|

@@ -138,8 +138,13 @@ public class CDLinkedList {
 		Iterator itr = new DListIterator(header);
 		while (itr.hasNext()) {
 			Object data = itr.next();
+			if((int)data!=header.data){
+				System.out.print(" "+data);
 
-			System.out.print(" "+data);
+			}else{
+				System.out.println("Empty");
+			}
+			
 			if(((DListIterator)itr).currentNode.nextNode==header){
 				break;
 
@@ -223,18 +228,51 @@ public class CDLinkedList {
 	public void selectionSort() throws Exception{
 		// Create pointers
 		DListIterator iter1  = new DListIterator(this.header.nextNode);
-		DListIterator iter2  = new DListIterator(this.header.nextNode.nextNode);
+		DListIterator iter2  = new DListIterator(this.header.nextNode);
 		while(iter1.currentNode!=this.header){
+			DListIterator min = new DListIterator(iter2.currentNode);
 			while(iter2.currentNode!=this.header){
-				if(iter1.currentNode.data>iter2.currentNode.data){
-					int temp = iter1.currentNode.data;
-					iter1.currentNode.data = iter2.currentNode.data;
-					iter2.currentNode.data = temp;
+				
+				if(min.currentNode.data>iter2.currentNode.data){
+					// System.out.println(min.currentNode.data);
+					min.currentNode = iter2.currentNode;
+					
 				}
 				iter2.next();
 
 			}
+			// System.out.println(min.currentNode.data);
+			if(min.currentNode!=this.header){
+				int temp = iter1.currentNode.data;
+				iter1.currentNode.data = min.currentNode.data;
+				min.currentNode.data = temp;
+			}
+			
+
 			iter1.next();
+			iter2.currentNode = iter1.currentNode.nextNode;
+		}
+	}
+	public void selectionSortPointer() throws Exception{
+		// Create pointers
+		DListIterator iter1  = new DListIterator(this.header.nextNode);
+		DListIterator iter2  = new DListIterator(this.header.nextNode.nextNode);
+		while(iter1.currentNode!=this.header){
+			DListIterator min  = new DListIterator(iter2.currentNode);
+
+			while(iter2.currentNode!=this.header){
+				if(min.currentNode.data>iter2.currentNode.data){
+					min.currentNode = iter2.currentNode;
+				}
+				iter2.next();
+
+			}
+			if(min.currentNode!= header && min.currentNode.data<iter1.currentNode.data){
+				swap(min, iter1);
+				System.out.println(min.currentNode.data);
+			}
+			iter1.next();
+			// System.out.println(iter1.currentNode.data);
 			iter2.currentNode = iter1.currentNode.nextNode;
 		}
 	}
@@ -248,6 +286,24 @@ public class CDLinkedList {
 					int temp = iter2.currentNode.nextNode.data;
 					iter2.currentNode.nextNode.data = iter2.currentNode.data;
 					iter2.currentNode.data = temp;
+				}
+				iter2.next();
+			}
+			iter1.next();
+
+		}
+	}
+	public void bubbleSortPointer() throws Exception{
+		DListIterator iter1  = new DListIterator(this.header.nextNode);
+		
+		while(iter1.currentNode!=header){
+			DListIterator iter2  = new DListIterator(this.header);
+			while(iter2.currentNode.nextNode!=header){
+				if(iter2.currentNode.data>iter2.currentNode.nextNode.data){
+					
+					
+					removeAt(iter2);
+					insert(iter2.currentNode.data, new DListIterator(iter2.currentNode.nextNode));
 				}
 				iter2.next();
 			}

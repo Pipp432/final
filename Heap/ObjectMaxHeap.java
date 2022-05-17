@@ -1,11 +1,10 @@
 package Heap;
 
-//! This is the prof. version
-public class ObjectHeap implements PriorityQ {
-	Object[] mData;
+public class ObjectMaxHeap implements PriorityQ{
+    Object[] mData;
 	int size = 0;
 
-	public ObjectHeap() {
+	public ObjectMaxHeap() {
 		final int DEFAULT_INITIAL_CAPACITY = 11;
 		mData = new Comparable[DEFAULT_INITIAL_CAPACITY];
 	} // default constructor
@@ -31,7 +30,7 @@ public class ObjectHeap implements PriorityQ {
 		Comparable temp;
 		while (child > 0) {
 			parent = (child - 1) / 2;
-			if (((Comparable) mData[parent]).compareTo(mData[child]) <= 0)
+			if (((Comparable) mData[parent]).compareTo(mData[child]) >= 0)
 				break;
 			temp = (Comparable) mData[parent];
 			mData[parent] = mData[child];
@@ -62,9 +61,9 @@ public class ObjectHeap implements PriorityQ {
 		Object temp;
 		while (child < size) {
 			if (child < size - 1
-					&& ((Comparable) mData[child]).compareTo(mData[child + 1]) > 0)
+					&& ((Comparable) mData[child]).compareTo(mData[child + 1]) < 0)
 				child++;
-			if (((Comparable) mData[parent]).compareTo(mData[child]) <= 0)
+			if (((Comparable) mData[parent]).compareTo(mData[child]) >= 0)
 				break;
 			temp = mData[child];
 			mData[child] = mData[parent];
@@ -75,8 +74,11 @@ public class ObjectHeap implements PriorityQ {
 	}
 
 	public int size() {
-		
+		// TODO Auto-generated method stub
 		return size;
 	}
 	
 }
+
+    
+
