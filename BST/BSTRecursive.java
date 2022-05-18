@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
+import Queues.QueueArray;
+import Sorting.ArrayPrinter;
+
 public class BSTRecursive {
 
 	public BSTNode root;
@@ -417,6 +420,49 @@ public class BSTRecursive {
 		return null;
 		
 	}
+	public int[] toSortedArray(){
+		ArrayList<Integer> arr = new ArrayList<>();
+		int[] result = new int[this.size];
+		// The idea is to do inorder traversal left, root, right
+		
+		toSortedArray(this.root,arr);
+		for(int i=0;i<arr.size();i++){
+			result[i] = arr.get(i);
+ 
+		}
+		return result;
+	}
+	
+	public void toSortedArray(BSTNode node,ArrayList<Integer> arr){
+		
+		if(node==null) return;
+		toSortedArray(node.left,arr);
+		
+		arr.add(node.data);
+		
+		toSortedArray(node.right,arr);
+		
+	}
+	public QueueArray toSortedQueue(){
+		
+		QueueArray result = new QueueArray();
+		// The idea is to do inorder traversal left, root, right
+		
+		toSortedQueue(this.root,result);
+		
+		return result;
+	}
+	
+	public void toSortedQueue(BSTNode node,QueueArray q){
+		
+		if(node==null) return;
+		toSortedQueue(node.left,q);
+		
+		q.insertLast(node.data);
+		
+		toSortedQueue(node.right,q);
+		
+	}
 
 	
 	
@@ -430,8 +476,8 @@ public class BSTRecursive {
 		BTreePrinter.printNode(t2.root);
 
 		BSTNode r = new BSTNode(7);
-		BSTRecursive t = new BSTRecursive(r, 0);
-		t.insert(3);
+		BSTRecursive t = new BSTRecursive(r, 1);
+		 t.insert(3);
 		t.insert(10);
 		t.insert(9);
 		t.insert(1);
@@ -440,7 +486,7 @@ public class BSTRecursive {
 
 
 		BSTNode r1= new BSTNode(7);
-		BSTRecursive t1 = new BSTRecursive(r1, 0);
+		BSTRecursive t1 = new BSTRecursive(r1, 1);
 		t1.insert(3);
 		t1.insert(10);
 		t1.insert(9);
@@ -479,6 +525,14 @@ public class BSTRecursive {
 		// 	System.out.println("No parent");
 		// }
 		System.out.println(t.nextLargest(t.root.right.left).data);
+		ArrayPrinter a = new ArrayPrinter();
+		int[] arr = t.toSortedArray();
+		a.printArray(arr);
+		QueueArray q = t.toSortedQueue();
+		while(!q.isEmpty()){
+			System.out.println(q.removeFirst());
+			
+		}
 		
 		// System.out.println(t.maxSum(t.root, 0));
 		

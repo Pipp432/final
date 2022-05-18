@@ -41,6 +41,7 @@ same|Prof's book|-|BSTRecurrsive.java|
 |sameData()|Prof's book|-|BSTRecurrsive.java|
 |findParent()|Prof's book|-|BSTRecurrsive.java|
 |findNextLargest()|Prof's book|-|BSTRecurrsive.java|
+|removeSecond()|Prof's book|-|Heap.java|
 
 # What I have learn while preparing
 

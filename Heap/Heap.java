@@ -254,6 +254,18 @@ public class Heap{
         return heap.top();
         
     }
+    public void removeSecond(){
+        if(this.size<3) return;
+        
+        mData[1] = mData[mData.length-1];
+        size--;
+        mData[mData.length-1]=0;
+        percolateDown(1);
+
+        
+
+    }
+    
    
    
 
@@ -267,10 +279,11 @@ public class Heap{
         Heap heap = new Heap();
         heap.mData = arr;
         heap.size = arr.length;
-        
-         System.out.println(findKthLargest(arr, 1));
+        heap.removeSecond();
+        ap.printArray(arr);
+        // System.out.println(findKthLargest(arr, 1));
       
-         ap.printArray(arr);
+        // ap.printArray(arr);
      
        
        
