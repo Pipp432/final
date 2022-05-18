@@ -71,7 +71,7 @@ public class ArraySort {
             i++;
         }
         while(j<b.length){
-            b1[k] = b[j];
+            b1[s] = b[j];
             s++;
             j++;
         }
@@ -85,8 +85,8 @@ public class ArraySort {
     }
     public static void main(String args[]){
         ArrayPrinter ap = new ArrayPrinter();
-        int[] a = {1,5,4,6,8,9,10,2};
-        int[] b = {2,5,7,3,5,6,9};
+        int[] a = {8,4,7,5,2};
+        int[] b = {6,10,3,0,11,1};
         
         ap.printArray(sortTwoArrayCombine(a,b));
         sortTwoArray(a, b);
