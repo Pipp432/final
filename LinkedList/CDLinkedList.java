@@ -225,6 +225,9 @@ public class CDLinkedList {
 
 
 	}
+	public void sort() throws Exception{
+		insertionSort();
+	}
 	public void selectionSort() throws Exception{
 		// Create pointers
 		DListIterator iter1  = new DListIterator(this.header.nextNode);
@@ -312,6 +315,8 @@ public class CDLinkedList {
 		}
 	}
 	public void insertionSort() throws Exception{
+		if(this.isEmpty()) return;
+		if(this.size==1) return;
 		DListIterator iter1  = new DListIterator(this.header);
 		DListIterator iter2  = new DListIterator(this.header.nextNode.nextNode);
 		
