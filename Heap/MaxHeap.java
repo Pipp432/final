@@ -53,17 +53,47 @@ public class MaxHeap {
          int maxData = mData[0];
          mData[0] = mData[size-1];
          size--;
+         percolateDown(0);
          return maxData; 
 
 
      }
-     public static void main(String args[]){
+     protected void percolateDown(int start){
+        int parent = start;
+        int child = 2 * parent + 1; // Left Child
+        int temp;
+        // Check if left child exists
+        while(child < size){
+            int leftVal = mData[child]; // Get the left data
+            // The left child must hav a right child to compare with 
+            // so check if a right child exist
+            if(child<size-1){
+                int rightVal = mData[child+1]; // Get the right data
+                if(leftVal<rightVal) child++; 
+            }
+
+            int parentVal = mData[parent]; // Get parent data
+            if(parentVal > mData[child]){
+                break; 
+            }
+            
+            temp = mData[child];
+            mData[child] = mData[parent];
+            mData[parent] = temp;
+            
+            parent = child;
+            child  =2*parent+1;
+
+        }
+    }
+     public static void main(String args[]) throws Exception{
          MaxHeap heap = new MaxHeap();
-         int[] arr = {50,30,19,10,2,15,5,20};
+         int[] arr = {20,40,10,5,100,79,26,30};
          for (int element :arr) {
              heap.add(element);
              
          }
+         heap.pop();
          ArrayPrinter ap = new ArrayPrinter();
          ap.printArray(heap.mData);
        
