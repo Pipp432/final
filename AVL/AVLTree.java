@@ -225,6 +225,12 @@ public class AVLTree {
 	
 		
 	}
+	public void preOrderTraversal(AVLNode node){
+		if(node==null) return;
+		System.out.print(" "+node.data);
+		preOrderTraversal(node.left);
+		preOrderTraversal(node.right);
+	}
 
 	public AVLNode rotateRightChild(AVLNode n) {
 		AVLNode r = n.right;
@@ -266,6 +272,22 @@ public class AVLTree {
 		AVLNode.updateHeight(n);
 		return n;
 	}
+	public AVLTree mergeTree(AVLTree t){
+		AVLTree result =  new AVLTree();
+		result.root =mergeTree(this.root,t.root);
+		result.rebalance(result.root);
+		return result;
+	}
+	private AVLNode mergeTree(AVLNode t1, AVLNode t2){
+		if(t1==null) return t2;
+		if(t2==null) return t1;
+		t1.data += t2.data;
+		t1.left = mergeTree(t1.left, t2.left);
+		t1.right = mergeTree(t1.right, t2.right);
+		return t1;
+
+
+	}
 	public static void main(String args[]) throws Exception{
 		CDLinkedList list = new CDLinkedList();
 		list.insert(10, new DListIterator(list.header));
@@ -275,7 +297,25 @@ public class AVLTree {
 		list.insert(2, new DListIterator(list.header));
 		list.insert(15, new DListIterator(list.header));
 		AVLTree result = CDLinkedListToAVL(list);
-		System.out.println(result.isAVL());
+		AVLTree t1 = new AVLTree();
+		t1.root = new AVLNode(12);
+		t1.insert(4);
+		t1.insert(13);
+		t1.insert(15);
+		t1.insert(6);
+		t1.insert(17);
+		AVLTree t2 = new AVLTree();
+		t2.root = new AVLNode(20);
+		t2.insert(1);
+		t2.insert(3);
+		t2.insert(9);
+		t2.insert(22);
+		t2.insert(21);
+		 AVLTree t3=t1.mergeTree(t2);
+		// t1.preOrderTraversal(t1.root);
+		 System.out.println(t3.root.left.right.data);
+		//  System.out.println(t3.root.left.data);
+		 t3.preOrderTraversal(t3.root);
 	}
 
 }

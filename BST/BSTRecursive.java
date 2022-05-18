@@ -6,7 +6,7 @@ import java.util.Queue;
 
 public class BSTRecursive {
 
-	BSTNode root;
+	public BSTNode root;
 	int size;
 
 	public BSTRecursive(BSTNode root, int size) {
