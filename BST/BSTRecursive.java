@@ -1,8 +1,11 @@
 package BST;
 
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Set;
 
 public class BSTRecursive {
 
@@ -285,10 +288,30 @@ public class BSTRecursive {
 			if(temp.left!=null) q.add(temp.left);
 			if(temp.right!=null) q.add(temp.right);
 		}
-			
 		
+	}
+	public static boolean same(BSTRecursive t1,BSTRecursive t2){
+		return same(t1.root,t2.root);
+	}
+	public static boolean same(BSTNode t1,BSTNode t2){
+		
+		if(t1==null && t2==null) return true;
+		if(t1==null||t2==null) return false;
+		if(t1.data!=t2.data) return false;
+		return same(t1.left,t2.left)&&same(t1.right,t2.right);
+	}
+
+	public int average(BSTRecursive t){
+		return(average(t.root))/(t.size);
+	}
+
+	public int average(BSTNode node){
+		if(node==null) return 0;
+	
+		return node.data + average(node.left)+ average(node.right);
 
 	}
+
 	public static BSTNode sortedArrayToAVL(int[] array, int startIndex, int endIndex){
 		
 		if(startIndex>endIndex) return null;
@@ -309,6 +332,7 @@ public class BSTRecursive {
 		
 		return 1+ Math.max(l,r);
 	}
+
 	public boolean hasPathSum(BSTNode node, int num){
 		if(node ==null) return false;
 		int current = node.data;
@@ -317,9 +341,11 @@ public class BSTRecursive {
 		int remianing = num-current;
 		return hasPathSum(node.left, remianing)|| hasPathSum(node.right, remianing);
 	}
+
 	public int maxSum(BSTNode node){
 		return maxSum(node,0);
 	}
+
 	public int maxSum(BSTNode node,int current){
 		current+=node.data;
 		if(node.right!=null){
@@ -333,9 +359,69 @@ public class BSTRecursive {
 		if(p.data>root.data && q.data>root.data) return lowestCommonNode(root.right, p, q);
 		return root.data;
 	}
+
+	public boolean sameData(BSTRecursive t1, BSTRecursive t2){
+		
+		
+		return sameData(t1.root,t2.root);
+		
+	}
+	public boolean sameData(BSTNode t1, BSTNode t2){
+		// If given a hash class use that instead
+		
+		HashSet<Integer> hash1 = new HashSet<>();
+		HashSet<Integer> hash2 = new HashSet<>();
+		insertDataIntoHash(t1,hash1);
+		insertDataIntoHash(t2,hash2);
+		return hash1.equals(hash2);
+	}
+	public void insertDataIntoHash(BSTNode node,HashSet<Integer> hash){
+		if(node==null) return;
+		insertDataIntoHash(node.left, hash);
+		hash.add(node.data);
+		insertDataIntoHash(node.right, hash);
+
+	}
+	public BSTNode findParent(BSTNode n, BSTNode d, BSTNode parent){
+		if(n==null) {
+			
+			return null;
+		}
+		if(d.data>n.data&&n.right!=null){
+			if(n.right.data!=d.data)return findParent(n.right, d, parent);
+		}
+		if(d.data<n.data&&n.left!=null ){
+			if(n.left.data!=d.data)return findParent(n.left, d, parent);
+		}
+		
+		parent = n;
+		return parent;
+	}
+	
+	public BSTNode nextLargest(BSTNode node){
+		if(node.right!=null){
+			node =node.right;
+			while(node.left!=null){
+				node = node.left;
+			}
+			return node;
+		}
+		while(node.parent!=null){
+			if(node.parent.left==node){
+				return node.parent;
+			}
+			node = node.parent;
+			
+			
+		}
+		return null;
+		
+	}
+
 	
 	
 	
+
 	
 	public static void main(String[] args) throws Exception {
 		BSTRecursive t2 = new BSTRecursive(null, 0);
@@ -344,16 +430,24 @@ public class BSTRecursive {
 		BTreePrinter.printNode(t2.root);
 
 		BSTNode r = new BSTNode(7);
-		BSTRecursive t = new BSTRecursive(r, 2);
+		BSTRecursive t = new BSTRecursive(r, 0);
 		t.insert(3);
 		t.insert(10);
 		t.insert(9);
 		t.insert(1);
+		t.insert(15);
 		t.insert(5);
-		t.insert(11);
+
+
+		BSTNode r1= new BSTNode(7);
+		BSTRecursive t1 = new BSTRecursive(r1, 0);
+		t1.insert(3);
+		t1.insert(10);
+		t1.insert(9);
 		
 		
-		BTreePrinter.printNode(t.root);
+		
+		// BTreePrinter.printNode(t.root);
 		// BSTNode node = t.deepCopyTree(t.root);
 		// BTreePrinter.printNode(node);
 		// BST b = new BST(node, 0);
@@ -367,12 +461,27 @@ public class BSTRecursive {
 		// BSTNode node1 = BSTRecursive.sortedArrayToAVL(arr,0,arr.length-1);
 		// BTreePrinter.printNode(node1);
 		// t.reverseInOrderTraversal(t.root);
-		t.breadthFirstTraversal();
-		BSTNode t3  = t.createMirror();
-		System.out.println();
-		BSTRecursive tree = new BSTRecursive(t3, 0);
-		tree.breadthFirstTraversal();
+		// t.breadthFirstTraversal();
+		// BSTNode t3  = t.createMirror();
+		// System.out.println();
+		// BSTRecursive tree = new BSTRecursive(t3, 0);
+	
+		// tree.breadthFirstTraversal();
+		// System.out.println(t.size);
+		// System.out.println(54/t.size);
+		// System.out.println(t.average(t));
+		BTreePrinter.printNode(t.root);
+		
+		// if(t.findParent(t.root,new BSTNode(15),new BSTNode(0))!=null){
+		// 	System.out.println((t.findParent(t.root,new BSTNode(15),new BSTNode(0)).data));
+
+		// }else{
+		// 	System.out.println("No parent");
+		// }
+		System.out.println(t.nextLargest(t.root.right.left).data);
+		
 		// System.out.println(t.maxSum(t.root, 0));
+		
 		
 		
 	}
