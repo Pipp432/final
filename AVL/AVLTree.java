@@ -173,15 +173,29 @@ public class AVLTree {
 
 	public boolean isAVL() throws Exception {
 		if(root==null) return true;
+		if(root.left==null && root.right ==null) return true;
 		AVLTree leftTree = new AVLTree();
 		leftTree.root = root.left;
+		
 		AVLTree rightTree = new AVLTree();
 		rightTree.root = root.right;
-		if(Math.abs(root.left.height-root.right.height)<=1 && leftTree.isAVL() && rightTree.isAVL()) {
+		if(Math.abs(height(root.left)-height(root.right))<=1 && leftTree.isAVL() && rightTree.isAVL()) {
 			return true;
-		}
-		return false; 
 		
+			
+		}
+		
+				
+		
+		return false;
+		}
+	public int height(AVLNode node){
+		 if (node == null)
+           return 0;
+
+      
+       return 1 + Math.max(height(node.left), height(node.right));
+
 	}
 
 
