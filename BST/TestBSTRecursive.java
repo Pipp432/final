@@ -131,6 +131,15 @@ public class TestBSTRecursive {
 		t.insert(48);
 		assertTrue(t.isAVL());
 	}
+    @Test
+    public void testSortedArrayToAVL(){
+        
+        int[] arr = {-1,1,3,4,5,7,9,23,65,87,123};
+        BSTRecursive r = new BSTRecursive( BSTRecursive.sortedArrayToAVL(arr, 0, arr.length-1), 0);
+        assertTrue(r.isAVL());
+        
+        
+    }
 	
 	
 	
