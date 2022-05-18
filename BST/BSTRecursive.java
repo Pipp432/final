@@ -367,8 +367,12 @@ public class BSTRecursive {
 		// BSTNode node1 = BSTRecursive.sortedArrayToAVL(arr,0,arr.length-1);
 		// BTreePrinter.printNode(node1);
 		// t.reverseInOrderTraversal(t.root);
-		// t.breadthFirstTraversal();
-		System.out.println(t.maxSum(t.root, 0));
+		t.breadthFirstTraversal();
+		BSTNode t3  = t.createMirror();
+		System.out.println();
+		BSTRecursive tree = new BSTRecursive(t3, 0);
+		tree.breadthFirstTraversal();
+		// System.out.println(t.maxSum(t.root, 0));
 		
 		
 	}
