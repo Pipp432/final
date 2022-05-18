@@ -250,6 +250,22 @@ public class AVLTree {
 		}
 		return result;
 	}
+	public AVLNode insertNoBalance(int v) {
+		return insertNoBalance(v, root, null);
+	}
+
+	private AVLNode insertNoBalance(int v, AVLNode n, AVLNode parent) {
+		if (n == null) {
+			n = new AVLNode(v, null, null, parent, 0);
+			size++;
+		} else if (v < n.data) {
+			n.left = insertNoBalance(v, n.left, n);
+		} else if (v > n.data) {
+			n.right = insertNoBalance(v, n.right, n);
+		}
+		AVLNode.updateHeight(n);
+		return n;
+	}
 	public static void main(String args[]) throws Exception{
 		CDLinkedList list = new CDLinkedList();
 		list.insert(10, new DListIterator(list.header));
