@@ -226,7 +226,7 @@ public class CDLinkedList {
 
 	}
 	public void sort() throws Exception{
-		insertionSort();
+		selectionSort();
 	}
 	public void selectionSort() throws Exception{
 		// Create pointers
@@ -245,7 +245,7 @@ public class CDLinkedList {
 
 			}
 			// System.out.println(min.currentNode.data);
-			if(min.currentNode!=this.header){
+			if(min.currentNode!=this.header && min.currentNode.data<iter1.currentNode.data){
 				int temp = iter1.currentNode.data;
 				iter1.currentNode.data = min.currentNode.data;
 				min.currentNode.data = temp;
@@ -377,6 +377,7 @@ public class CDLinkedList {
 		pointer1.currentNode.data = pointer2.currentNode.data;
 		pointer2.currentNode.data = temp;
 	}
+	
 	public static void mergesort(CDLinkedList list) throws Exception{
 		if(list==null) return;
 		int inputLength = list.size;

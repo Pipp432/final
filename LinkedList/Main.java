@@ -4,11 +4,12 @@ public class Main {
     public static void main(String args[] ) throws Exception{
         CDLinkedList list1 = new CDLinkedList();
         CDLinkedList list2 = new CDLinkedList();
-        list1.insert(100, new DListIterator(list1.header));
-        list1.insert(43, new DListIterator(list1.header));
-        list1.insert(554, new DListIterator(list1.header));
-        list1.insert(7432, new DListIterator(list1.header));
-        list1.insert(-10, new DListIterator(list1.header));
+        list1.insert(0, new DListIterator(list1.header));
+        list1.insert(1, new DListIterator(list1.header));
+        list1.insert(2, new DListIterator(list1.header));
+        list1.insert(3, new DListIterator(list1.header));
+        list1.insert(4, new DListIterator(list1.header));
+        list1.insert(6, new DListIterator(list1.header));
         list2.insert(10, new DListIterator(list2.header));
         list2.insert(8, new DListIterator(list2.header));
         list2.insert(6, new DListIterator(list2.header));
@@ -17,7 +18,7 @@ public class Main {
           list1.printList();
         // list2.printList();
          System.out.println();   
-        list1.selectionSortPointer();
+        list1.selectionSort();
         list1.printList();
         System.out.println();
         // DListIterator iter = new DListIterator(list1.header.nextNode);
