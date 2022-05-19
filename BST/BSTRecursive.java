@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Set;
 
+import LinkedList.CDLinkedList;
+import LinkedList.DListIterator;
 import Queues.QueueArray;
 import Sorting.ArrayPrinter;
 
@@ -160,7 +161,7 @@ public class BSTRecursive {
 		
 
 	}
-	public int getHeight(BSTNode node) {
+	public static int getHeight(BSTNode node) {
 		// Get the height of a tree
 		// If null tree (empty tree) the height is -1
 		// If single node the height is 0
@@ -463,6 +464,20 @@ public class BSTRecursive {
 		toSortedQueue(node.right,q);
 		
 	}
+	public static CDLinkedList nonAVLNodes(BSTNode n) throws Exception{
+		CDLinkedList list = new CDLinkedList();
+
+		nonAVLNodes(n,list);
+		return list;
+	}
+	public static CDLinkedList nonAVLNodes(BSTNode n,CDLinkedList list) throws Exception{
+		if(n==null) return list;
+		
+		if(Math.abs(getHeight(n.left)-getHeight(n.right))>1) list.insert(n.data, new DListIterator(list.header));
+		nonAVLNodes(n.left, list);
+		nonAVLNodes(n.right, list);
+		return list;
+	}
 
 	
 	
@@ -477,13 +492,15 @@ public class BSTRecursive {
 
 		BSTNode r = new BSTNode(7);
 		BSTRecursive t = new BSTRecursive(r, 1);
-		 t.insert(3);
+		t.insert(5);
+		t.insert(4);
+		t.insert(3);
+		t.insert(2);
 		t.insert(10);
 		t.insert(9);
 		t.insert(1);
 		t.insert(15);
-		t.insert(5);
-
+		
 
 		BSTNode r1= new BSTNode(7);
 		BSTRecursive t1 = new BSTRecursive(r1, 1);
@@ -517,6 +534,9 @@ public class BSTRecursive {
 		// System.out.println(54/t.size);
 		// System.out.println(t.average(t));
 		BTreePrinter.printNode(t.root);
+		CDLinkedList list =nonAVLNodes(t.root);
+		list.printList();
+		
 		
 		// if(t.findParent(t.root,new BSTNode(15),new BSTNode(0))!=null){
 		// 	System.out.println((t.findParent(t.root,new BSTNode(15),new BSTNode(0)).data));
@@ -524,15 +544,15 @@ public class BSTRecursive {
 		// }else{
 		// 	System.out.println("No parent");
 		// }
-		System.out.println(t.nextLargest(t.root.right.left).data);
-		ArrayPrinter a = new ArrayPrinter();
-		int[] arr = t.toSortedArray();
-		a.printArray(arr);
-		QueueArray q = t.toSortedQueue();
-		while(!q.isEmpty()){
-			System.out.println(q.removeFirst());
+		// System.out.println(t.nextLargest(t.root.right.left).data);
+		// ArrayPrinter a = new ArrayPrinter();
+		// int[] arr = t.toSortedArray();
+		// a.printArray(arr);
+		// QueueArray q = t.toSortedQueue();
+		// while(!q.isEmpty()){
+		// 	System.out.println(q.removeFirst());
 			
-		}
+		// }
 		
 		// System.out.println(t.maxSum(t.root, 0));
 		

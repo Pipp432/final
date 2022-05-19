@@ -43,13 +43,14 @@ same|Prof's book|-|BSTRecurrsive.java|
 |findNextLargest()|Prof's book|-|BSTRecurrsive.java|
 |removeSecond()|Prof's book|-|Heap.java|
 |sortTwoArray()|Prof's book|-|Heap.java|
+|nonAVLNodes()|final_2017|-|BSTRecursive.java|
+|Heap Tree and Heap Node|final_2017|-|HeapTree.java|
 
 # What I have learn while preparing
 
 ## General
 
 1. Do not pigeonhole yourself with the method header. Crate Overloaded methods to help.
-
 
 ## AVL tree and BST
 

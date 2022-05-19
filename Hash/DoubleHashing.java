@@ -1,49 +1,109 @@
 package Hash;
 
-public class DoubleHashing extends OpenAddressing {
-    static double MAXFACTOR = 0.75;
-    int occupiedSlots = 0;
+class DoubleHashing extends OpenAddressing{
+    private int occupiedSlots = 0;
+    private static float MAXFACTOR = 0.75f;
+    private Object[] array; 
 
     public DoubleHashing(){
-        this(DEFAULT_SIZE);
+    this(DEFAULT_SIZE);
     }
 
     public DoubleHashing(int size){
-        super(size);
+    super(size);
     }
 
     public int hash(Object data){
         int hashValue = data.hashCode();
         int abs = Math.abs(hashValue);
-        return abs%a.length;
+        return abs%array.length;
     }
-    public void add(Object data){
-        // Guard against null data
-        if(data==null) return;  
-        int currentIndex = hash(data);
-        // While searching for a slot if a collsion occur hash forward, break loop if a empty slot is found
-        // or a slot has the DELETED obj.
-        while(a[currentIndex]!=null){
-          
-            // If the data is within the array already break the loop
-            if(data.equals(a[currentIndex])) return;
-            // If the current index has DELETED obj. stored within store the data instead and return;
-            if(a[currentIndex].equals(DELETED)){
-                a[currentIndex] = data;
-                return;
-            }
-            // Do double hashing if a collsion occurs (Commented out to avoid error)
 
-            //currentIndex = hash(data + hash2(data)); 
-
-        }
-        // Loop has broken due to an empty slot therefore we can add the data to the array
-        a[currentIndex] = data;
-        
-
-    }
     public int hash2(Object data){
-        // This method in the exam said NOT TO IMPLEMENT so we will leave it empty
-        return 0;
+        return 0;//any unique number function different
+    //from hash.
+    }
+
+    public int find(Object data){
+        final int smallNum = 5;
+        int h = hash(data);
+        int hash2Result = hash2(data);
+        for(int i=0; i<currentSize+smallNum; i++){
+            if(array[h] == null || array[h].equals(data)) return h;
+            h = (h + hash2Result)%array.length;
+        }
+        return -1;
+    }
+
+    public void add(Object data) throws Exception{
+        int h = hash(data);
+        int hash2Result = hash2(data);
+        int emptySlotPosition = -1;
+        int i;
+        final int smallNum = 5; //a small threshold
+        for(i=0; i<currentSize + smallNum; i++){
+            if(array[h] == null || array[h].equals(data)) break;
+
+            if(array[h] == DELETED && emptySlotPosition == -1){
+                emptySlotPosition = h;
+            }
+
+            h = (h + hash2Result)%array.length;
+        }
+        if(i >= currentSize + smallNum){
+            rehash();
+            add(data);
+        }
+        else {
+            if(array[h] == null){
+                if(emptySlotPosition != -1){
+                    array[emptySlotPosition] = data;
+                } 
+                else {
+                    array[h] = data;
+                    occupiedSlots++;
+                }
+                currentSize++;
+                double currentLoadFactor =
+                (double)(occupiedSlots/array.length);
+
+                if(currentLoadFactor > MAXFACTOR) rehash();
+            }
+        }
+    }
+    public void rehash() throws Exception{
+        Object[] oldArray = array;
+        array = new Object[nextPrime(array.length*2)];
+        currentSize = 0;
+        occupiedSlots = 0;
+        for(int i=0; i<oldArray.length; i++){
+            if(oldArray[i] != null && oldArray[i]!=DELETED) add(oldArray[i]);
+        }
+    } 
+
+    public void remove(Object data){
+       int index = find(data);
+       if(index != -1 && array[index]!=null){
+        array[index] = DELETED;
+        currentSize--;
+       }
+    }
+                     
+
+
+    private static boolean isPrime(int n){
+         if(n == 2 || n == 3) return true;
+         if(n == 1 || n % 2 == 0) return false;
+         for(int i = 3; i*i <= n; i+= 2)
+            if(n%i == 0) return false;
+         return true;
+         }
+        
+    private static int nextPrime(int n){
+        if(n % 2 == 0) n++;
+        for( ; !isPrime(n); n += 2 ){}
+        return n;
     }
 }
+                        
+
