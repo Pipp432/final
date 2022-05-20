@@ -299,7 +299,7 @@ public class AVLTree {
 		if(num==root.data) return root;
 		if(rootNode==null) return null;
 		insert(num);
-		AVLNode node =((AVLTreeIterator)find(num)).currentNode;
+		AVLNode node =finds(num);
 	
 		if(rootNode==this.root){
 			while(node.parent!=null){
@@ -371,6 +371,15 @@ public class AVLTree {
 		}
 			
 	}
+	public AVLNode finds(int v){
+		AVLNode current  =this.root;
+		while(current!=null){
+			if(current.data>v) current = current.left;
+			if(current.data<v) current = current.right;
+			if(current.data==v) return current;
+		}
+		return null;
+	}
 
 
 	
@@ -380,14 +389,12 @@ public class AVLTree {
 		tree.root = tree.insert(10);
 		tree.root = tree.insert(5);
 		tree.root = tree.insert(15);
-		tree.root = tree.insert(11);
-		tree.root = tree.insert(4);
-		tree.root = tree.insert(12);
+		
 		// tree.root = tree.insert(8);
 		
 		tree.breadthFirstTraversal();
 		System.out.println();
-	 	AVLNode node= tree.addUp(8, tree.root.left);
+	 	tree.addUp(20, tree.root);
 		 
 		 tree.breadthFirstTraversal();
 		 System.out.println();
