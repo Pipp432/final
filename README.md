@@ -16,7 +16,7 @@ Hello.
 |Hash Table Insert & Delete|final_2019|-|[Here](https://github.com/Pipp432/final/blob/main/Hash/Hash%20Table%202019-1.pdf)|
 |add() for Double Hashing|final_2019|-|DoubleHashing.java|
 |Invert()|EVERY CODING INTERVIEW EVER|O(n)|[Here](https://leetcode.com/problems/invert-binary-tree)|
-|Faster than O(nlogn) sorting algorithm|final_2015|O(d(n+b))|[Here](https://github.com/Pipp432/final/tree/main/Sorting/RadixSort)|
+|Faster than O(nlogn) sorting algorithm|final_2015|O(d(n+b))|RadixSort.java & bucketSort.java|
 |Hash Table Quadratic Probing|HW|-|[Here](https://github.com/Pipp432/final/blob/main/Hash/Hash%20Table%20HW_%20Quadratic%20probing.pdf)|
 |Hash Table Double Hasing|HW|-|[Here](https://github.com/Pipp432/final/blob/main/Hash/Hash%20Table_%20Double%20Hashing.pdf)|
 |Max-Heap Class|-|-|[Here](https://github.com/Pipp432/final/blob/main/Heap/MaxHeap.java)|
@@ -37,7 +37,7 @@ Hello.
 |hasPathSum()|GeekForGeeks.com|O(nlogn)|BSTRecursive.java|
 |Kth largest element in an array|LeetCode.com|-|heap.java|
 |average()|Prof's book|-|BSTRecurrsive.java|
-same|Prof's book|-|BSTRecurrsive.java|
+|same|Prof's book|-|BSTRecurrsive.java|
 |sameData()|Prof's book|-|BSTRecurrsive.java|
 |findParent()|Prof's book|-|BSTRecurrsive.java|
 |findNextLargest()|Prof's book|-|BSTRecurrsive.java|
@@ -45,6 +45,9 @@ same|Prof's book|-|BSTRecurrsive.java|
 |sortTwoArray()|Prof's book|-|Heap.java|
 |nonAVLNodes()|final_2017|-|BSTRecursive.java|
 |Heap Tree and Heap Node|final_2017|-|HeapTree.java|
+|addUp()|Prof's book & final_2017|-|AVLTree.java|
+|lowestCommonNode()|LeetCode.com|-|BSTRecursive.java|
+
 
 # What I have learn while preparing
 

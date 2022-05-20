@@ -20,8 +20,9 @@ class DoubleHashing extends OpenAddressing{
     }
 
     public int hash2(Object data){
-        return 0;//any unique number function different
-    //from hash.
+        int hashValue = data.hashCode();
+        int abs = Math.abs(hashValue);
+        return 5-(abs%5);
     }
 
     public int find(Object data){

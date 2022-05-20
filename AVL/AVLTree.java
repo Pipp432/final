@@ -278,18 +278,75 @@ public class AVLTree {
 	}
 	public void breadthFirstTraversal(){
 		Queue<AVLNode> q = new LinkedList<AVLNode>();
+		q.clear();
 		q.add(root);
 		while(!q.isEmpty()){
-			AVLNode temp = q.poll();
-			System.out.print(temp.data+" ");
+			AVLNode temp = q.remove();
+
+			 System.out.print(temp.data+" ");
 			
 			if(temp.left!=null) q.add(temp.left);
-			if(temp.right!=null) q.add(temp.right);
+			if(temp.right!=null)q.add(temp.right);
+			
+			
+			
 		}
 			
 		
 
 	}
+	public AVLNode addUp(int num, AVLNode node){
+		if(num==root.data) return root;
+		if(node==null) return null;
+		insert(num);
+		node =((AVLTreeIterator)find(num)).currentNode;
+		// System.out.println(node.parent.data);
+		
+			while(node.parent!=null){
+				
+				node = node.parent;
+			
+				
+				if(node.right!=null && node.right.data==num){
+					
+				
+						node = rotateRightChild(node);
+						// System.out.println(node.data);
+					
+						if(node.parent!=null && node.data<node.parent.data){
+							node.parent.left = node;
+							
+						}
+						if(node.parent!=null && node.data>node.parent.data){
+							node.parent.right = node;
+							
+						}
+						
+						
+				}
+				if(node.left!=null&& node.left.data==num){
+					
+					node = rotateLeftChild(node);
+					
+					if(node.parent!=null && node.data<node.parent.data){
+						node.parent.right = node;
+						
+					}
+					if(node.parent!=null && node.data>node.parent.data){
+						node.parent.left= node;
+						
+					}
+				}
+				
+				
+			}
+			
+			root = node;
+		
+		return node;
+	}
+
+
 	
 	public static void main(String args[]) throws Exception{
 		AVLTree tree = new AVLTree();
@@ -297,19 +354,33 @@ public class AVLTree {
 		tree.root = tree.insert(10);
 		tree.root = tree.insert(5);
 		tree.root = tree.insert(15);
+		tree.root = tree.insert(11);
+		tree.root = tree.insert(4);
+		tree.root = tree.insert(12);
+		// tree.root = tree.insert(8);
+		
+		
+	 	AVLNode node= tree.addUp(8, tree.root);
+		 
+		 tree.breadthFirstTraversal();
+		 System.out.println();
+		 System.out.println(node.right.left.data);
+		
+	
+
 		
 		
 		
 
-		tree.breadthFirstTraversal();
 		
 		
-		System.out.println();
+		
+		// System.out.println();
 		
 		
 		// tree.root=tree.rotateLeftChild(tree.root);
 		// System.out.println(tree.root.left.data);
-		tree.breadthFirstTraversal();
+		// tree.breadthFirstTraversal();
 
 		
 		

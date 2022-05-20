@@ -206,7 +206,7 @@ public class BSTRecursive {
 	}
 	public int maxNumberNode(){
 		if(this.root==null) return -1;
-		int height = this.getHeight(root);
+		int height = getHeight(root);
 		int total = 0;
 		for(int i = -1;i<height;i++){
 			total+=(int)(Math.pow(2, i+1));

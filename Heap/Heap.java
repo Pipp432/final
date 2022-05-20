@@ -279,8 +279,10 @@ public class Heap{
         Heap heap = new Heap();
         heap.mData = arr;
         heap.size = arr.length;
-        heap.removeSecond();
+        heap.removeValue(59);
+        heap.removeValue(1);
         ap.printArray(arr);
+        System.out.println(isHeap(arr, 0));
         // System.out.println(findKthLargest(arr, 1));
       
         // ap.printArray(arr);
