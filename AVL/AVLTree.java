@@ -243,6 +243,7 @@ public class AVLTree {
 		if (rl != null) {
 			rl.parent = n;
 		}
+		System.out.println(r.parent.data);
 		r.left = n;
 		r.parent = n.parent;
 		n.parent = r;
@@ -358,17 +359,26 @@ public class AVLTree {
 		AVLTree tree = new AVLTree();
 		
 		tree.root = tree.insert(10);
-		tree.root = tree.insert(5);
-		tree.root = tree.insert(15);
-		 tree.root = tree.insert(8);
+		tree.root = tree.insert(2);
+		tree.root = tree.insert(21);
+		tree.root = tree.insert(3);
+		tree.root = tree.insert(1);
+		tree.root = tree.insert(11);
+		tree.root = tree.insert(25);
+		
+		tree.root = tree.insert(22);
+		tree.root = tree.insert(30);
 		
 		
 		tree.breadthFirstTraversal();
-		System.out.println();
-	 	tree.addUp(20, tree.root);
-		 
+		System.out.println();;
+		
+	 	// tree.addUp(20, tree.root);
+		 tree.root.right = (tree.rotateRightChild(tree.root.right));
+		// System.out.println((tree.rotateRightChild(tree.root)).data);
 		 tree.breadthFirstTraversal();
 		 System.out.println();
+		
 		//  System.out.println(node.right.left.data);
 		
 	
