@@ -3,7 +3,7 @@ package Hash;
 class DoubleHashing extends OpenAddressing{
     private int occupiedSlots = 0;
     private static float MAXFACTOR = 0.75f;
-    public Object[] array = new Object[10]; 
+    public Object[] array = new Object[13]; 
 
     public DoubleHashing(){
     this(DEFAULT_SIZE);
@@ -14,15 +14,14 @@ class DoubleHashing extends OpenAddressing{
     }
 
     public int hash(Object data){
-        int hashValue = data.hashCode();
-        int abs = Math.abs(hashValue);
-        return abs%array.length;
+        
+      
+        return (int)data%array.length;
     }
 
     public int hash2(Object data){
-        int hashValue = data.hashCode();
-        int abs = Math.abs(hashValue);
-        return 5-(abs%5);
+       
+        return 7-((int)data%7);
     }
 
     public int find(Object data){
@@ -43,11 +42,13 @@ class DoubleHashing extends OpenAddressing{
         int i;
         final int smallNum = 5; //a small threshold
         for(i=0; i<currentSize + smallNum; i++){
+            // If array at h index is empty or the data is equal to our input break
             if(array[h] == null || array[h].equals(data)) break;
 
             if(array[h] == DELETED && emptySlotPosition == -1){
                 emptySlotPosition = h;
             }
+          
 
             h = (h + hash2Result)%array.length;
         }
