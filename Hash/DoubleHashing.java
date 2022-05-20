@@ -3,7 +3,7 @@ package Hash;
 class DoubleHashing extends OpenAddressing{
     private int occupiedSlots = 0;
     private static float MAXFACTOR = 0.75f;
-    public Object[] array = new Object[13]; 
+    public Object[] array = new Object[11]; 
 
     public DoubleHashing(){
     this(DEFAULT_SIZE);
@@ -21,7 +21,7 @@ class DoubleHashing extends OpenAddressing{
 
     public int hash2(Object data){
        
-        return 7-((int)data%7);
+        return 5-((int)data%5);
     }
 
     public int find(Object data){
