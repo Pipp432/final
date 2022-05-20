@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.junit.rules.TestRule;
+
 import LinkedList.CDLinkedList;
 import LinkedList.DListIterator;
 import Queues.QueueArray;
@@ -195,7 +197,15 @@ public class BSTRecursive {
 		return true;
 
 	}
-	
+	public boolean isMirror(BSTNode node){
+		return isMirror(node,node);
+		
+	}
+	private boolean isMirror(BSTNode t1, BSTNode t2){
+		if(t1==null && t2==null) return true;
+		if(t1==null || t2==null) return false;
+		return (t1.data == t2.data) && isMirror(t1.left, t2.right);
+	}
 
 
 	
