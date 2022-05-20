@@ -276,14 +276,14 @@ public class Heap{
         Heap.makeHeap3(arr);
         ArrayPrinter ap = new ArrayPrinter();
         ap.printArray(arr);
-        Heap heap = new Heap();
-        heap.mData = arr;
-        heap.size = arr.length;
-        heap.removeValue(59);
-        heap.removeValue(1);
-        ap.printArray(arr);
-        System.out.println(isHeap(arr, 0));
-        // System.out.println(findKthLargest(arr, 1));
+        // Heap heap = new Heap();
+        // heap.mData = arr;
+        // heap.size = arr.length;
+        // heap.removeValue(59);
+        // heap.removeValue(1);
+        // ap.printArray(arr);
+        // System.out.println(isHeap(arr, 0));
+        // // System.out.println(findKthLargest(arr, 1));
       
         // ap.printArray(arr);
      

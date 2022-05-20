@@ -378,7 +378,7 @@ public class AVLTree {
 		// System.out.println((tree.rotateRightChild(tree.root)).data);
 		 tree.breadthFirstTraversal();
 		 System.out.println();
-		
+		System.out.println(7/2);
 		//  System.out.println(node.right.left.data);
 		
 	
