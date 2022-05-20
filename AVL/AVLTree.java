@@ -324,7 +324,7 @@ public class AVLTree {
 					node.parent.left = node;
 				}
 				if(node.parent!=null && node.data>node.parent.data){
-					node.parent.right = node;
+					node.parent.right  = node;
 					
 				}
 		}
@@ -333,10 +333,10 @@ public class AVLTree {
 			node = rotateLeftChild(node);
 			
 			if(node.parent!=null && node.data<node.parent.data){
-				node.parent.right = node;
+				node.parent.left = node;
 			}
 			if(node.parent!=null && node.data>node.parent.data){
-				node.parent.left= node;
+				node.parent.right= node;
 				
 			}
 		}
@@ -360,12 +360,12 @@ public class AVLTree {
 		tree.root = tree.insert(10);
 		tree.root = tree.insert(5);
 		tree.root = tree.insert(15);
-		
+		 tree.root = tree.insert(8);
 		
 		
 		tree.breadthFirstTraversal();
 		System.out.println();
-	 	tree.addUp(8, tree.root.left);
+	 	tree.addUp(20, tree.root);
 		 
 		 tree.breadthFirstTraversal();
 		 System.out.println();
