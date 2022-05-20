@@ -295,34 +295,24 @@ public class AVLTree {
 		
 
 	}
-	public AVLNode addUp(int num, AVLNode node){
+	public AVLNode addUp(int num, AVLNode rootNode){
 		if(num==root.data) return root;
-		if(node==null) return null;
+		if(rootNode==null) return null;
 		insert(num);
-		node =((AVLTreeIterator)find(num)).currentNode;
-		// System.out.println(node.parent.data);
-		
+		AVLNode node =((AVLTreeIterator)find(num)).currentNode;
+	
+		if(rootNode==this.root){
 			while(node.parent!=null){
-				
 				node = node.parent;
-			
-				
 				if(node.right!=null && node.right.data==num){
-					
-				
 						node = rotateRightChild(node);
-						// System.out.println(node.data);
-					
 						if(node.parent!=null && node.data<node.parent.data){
 							node.parent.left = node;
-							
 						}
 						if(node.parent!=null && node.data>node.parent.data){
 							node.parent.right = node;
 							
 						}
-						
-						
 				}
 				if(node.left!=null&& node.left.data==num){
 					
@@ -330,20 +320,56 @@ public class AVLTree {
 					
 					if(node.parent!=null && node.data<node.parent.data){
 						node.parent.right = node;
-						
 					}
 					if(node.parent!=null && node.data>node.parent.data){
 						node.parent.left= node;
 						
 					}
 				}
-				
-				
+
 			}
 			
 			root = node;
 		
 		return node;
+
+		}else{
+				while(node.data!=rootNode.parent.data){
+					
+					node = node.parent;
+					
+					 System.out.println(node.data);
+					if(node.right!=null && node.right.data==num){
+							node = rotateRightChild(node);
+							if(node.parent!=null && node.data<node.parent.data){
+								node.parent.left = node;
+							}
+							if(node.parent!=null && node.data>node.parent.data){
+								node.parent.right = node;
+								
+							}
+					}
+					if(node.left!=null&& node.left.data==num){
+						
+						node = rotateLeftChild(node);
+						
+						if(node.parent!=null && node.data<node.parent.data){
+							node.parent.right = node;
+							
+						}
+						if(node.parent!=null && node.data>node.parent.data){
+							node.parent.left= node;
+							
+						}
+					}
+	
+				}
+				
+			
+			return node;
+
+		}
+			
 	}
 
 
@@ -359,12 +385,13 @@ public class AVLTree {
 		tree.root = tree.insert(12);
 		// tree.root = tree.insert(8);
 		
-		
-	 	AVLNode node= tree.addUp(8, tree.root);
+		tree.breadthFirstTraversal();
+		System.out.println();
+	 	AVLNode node= tree.addUp(8, tree.root.left);
 		 
 		 tree.breadthFirstTraversal();
 		 System.out.println();
-		 System.out.println(node.right.left.data);
+		//  System.out.println(node.right.left.data);
 		
 	
 
