@@ -6,8 +6,8 @@ public class HeapNode {
     public HeapNode right;
     public HeapNode parent; //pointers to other nodes within
     //the same tree.
-    public HeapNode(int data){
-		this(data,null,null,null);
+    public HeapNode(int data,HeapNode parent){
+		this(data,null,null,parent);
 	}
 	
 	public HeapNode(int data, HeapNode left, HeapNode right, HeapNode parent) {
