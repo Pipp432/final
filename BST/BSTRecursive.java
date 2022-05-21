@@ -6,12 +6,11 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import org.junit.rules.TestRule;
 
 import LinkedList.CDLinkedList;
 import LinkedList.DListIterator;
 import Queues.QueueArray;
-import Sorting.ArrayPrinter;
+
 
 public class BSTRecursive {
 
@@ -488,7 +487,18 @@ public class BSTRecursive {
 		nonAVLNodes(n.right, list);
 		return list;
 	}
+	public int getNodeHeight(BSTNode node){
+		if(node==null) return -1;
+		return 1+Math.max(getNodeHeight(node.left),getNodeHeight(node.right));
+	}
+	public boolean isBalance(BSTNode node){
+		if(node==null) return true;
+		if(Math.abs(getNodeHeight(node.left)-getHeight(node.right))<=1) return true &&isBalance(node.left)&&isBalance(node.right);
+		else return false;
 
+		 
+
+	}
 	
 	
 	
@@ -500,16 +510,18 @@ public class BSTRecursive {
 		t2.insert(5);
 		BTreePrinter.printNode(t2.root);
 
-		BSTNode r = new BSTNode(7);
+		BSTNode r = new BSTNode(10);
 		BSTRecursive t = new BSTRecursive(r, 1);
 		t.insert(5);
-		t.insert(4);
-		t.insert(3);
-		t.insert(2);
-		t.insert(10);
+		t.insert(11);
 		t.insert(9);
-		t.insert(1);
-		t.insert(15);
+		t.insert(14);
+		
+		t.insert(4);
+		t.insert(6);
+		
+		
+		
 		
 
 		BSTNode r1= new BSTNode(7);
@@ -517,6 +529,10 @@ public class BSTRecursive {
 		t1.insert(3);
 		t1.insert(10);
 		t1.insert(9);
+		
+		BTreePrinter.printNode(t.root);
+		System.out.println(t.isBalance(t.root));
+		System.out.println(t.isAVL());
 		
 		
 		
@@ -543,9 +559,9 @@ public class BSTRecursive {
 		// System.out.println(t.size);
 		// System.out.println(54/t.size);
 		// System.out.println(t.average(t));
-		BTreePrinter.printNode(t.root);
-		CDLinkedList list =nonAVLNodes(t.root);
-		list.printList();
+		// BTreePrinter.printNode(t.root);
+		// CDLinkedList list =nonAVLNodes(t.root);
+		// list.printList();
 		
 		
 		// if(t.findParent(t.root,new BSTNode(15),new BSTNode(0))!=null){

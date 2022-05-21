@@ -48,19 +48,19 @@ public class HuffmanNode implements Comparable<HuffmanNode>  {
 
     }
     public static void main(String args[]) throws Exception{
-        HuffmanNode a = new HuffmanNode('a', 10);
-        HuffmanNode b = new HuffmanNode('b', 20);
-        HuffmanNode c = new HuffmanNode('c', 30);
-        HuffmanNode d = new HuffmanNode('d', 15);
-        HuffmanNode e = new HuffmanNode('e', 18);
-        HuffmanNode f = new HuffmanNode('f', 40);
+        HuffmanNode a = new HuffmanNode('a', 100);
+        HuffmanNode b = new HuffmanNode('b', 160);
+        HuffmanNode c = new HuffmanNode('c', 250);
+        HuffmanNode d = new HuffmanNode('d', 300);
+        HuffmanNode e = new HuffmanNode('e', 320);
+        // HuffmanNode f = new HuffmanNode('f', 40);
         ObjectHeap heap = new ObjectHeap();
         heap.add(a);
         heap.add(b);
         heap.add(c);
         heap.add(d);
         heap.add(e);
-        heap.add(f);
+        // heap.add(f);
         createHuffmanTree(heap);
         // System.out.println( ((HuffmanNode)heap.top()).left.right.letter);
         printHuffmanTree((HuffmanNode)heap.top(), "");
