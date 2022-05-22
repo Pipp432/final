@@ -495,11 +495,25 @@ public class BSTRecursive {
 		if(node==null) return true;
 		if(Math.abs(getNodeHeight(node.left)-getHeight(node.right))<=1) return true &&isBalance(node.left)&&isBalance(node.right);
 		else return false;
-
-		 
+	}
+	int rangeSum =0;
+	public int rangeSum(BSTNode node, int lowBoundary, int highBoundary){
+		if(lowBoundary>highBoundary) return -1;
+		if(node==null) return -1;
+		
+		getRangeSum(node,lowBoundary,highBoundary);
+		return rangeSum;
 
 	}
-	
+	public void getRangeSum(BSTNode node,int lowBoundary, int highBoundary){
+		if(node==null) return;
+		if(node.data>=lowBoundary && node.data<=highBoundary){
+			rangeSum+=node.data;
+
+		}
+		if(node.data>lowBoundary) rangeSum(node.left, lowBoundary, highBoundary);
+		if(node.data<highBoundary) rangeSum(node.right, lowBoundary, highBoundary);
+	}
 	
 	
 
@@ -516,7 +530,6 @@ public class BSTRecursive {
 		t.insert(11);
 		t.insert(9);
 		t.insert(14);
-		
 		t.insert(4);
 		t.insert(6);
 		
@@ -528,8 +541,7 @@ public class BSTRecursive {
 		t1.insert(9);
 		
 		BTreePrinter.printNode(t.root);
-		System.out.println(t.isBalance(t.root));
-		System.out.println(t.isAVL());
+		System.out.println(t.rangeSum(t.root, 3, 6));
 		
 		
 		
