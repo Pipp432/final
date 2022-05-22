@@ -350,7 +350,7 @@ public class CDLinkedList {
 		
 		quickSort(low, high);
 	}
-	private void quickSort(DListIterator low, DListIterator high) throws Exception{
+	void quickSort(DListIterator low, DListIterator high) throws Exception{
 		if(low.currentNode == high.currentNode) return;
 		DListIterator pivot = new DListIterator(high.currentNode);
 		DListIterator leftPointer = new DListIterator(low.currentNode);

@@ -21,6 +21,17 @@ public class Main {
         list1.selectionSort();
         list1.printList();
         System.out.println();
+        DListIterator iter = new DListIterator(list1.header.nextNode);
+        DListIterator iter1 = new DListIterator(list1.header.nextNode);
+        DListIterator iter2 = new DListIterator(list1.header.nextNode);
+        while(iter2.currentNode!=list1.header){
+            iter2.next();
+        }
+        list1.quickSort(iter1,iter2);
+        while(iter.currentNode!=list1.header){
+            System.out.println(iter.currentNode.data);
+           iter.next();
+        }
         // DListIterator iter = new DListIterator(list1.header.nextNode);
         // DListIterator iter2 = new DListIterator(list1.header.nextNode.nextNode);
         //  System.out.println(iter.currentNode.data);
