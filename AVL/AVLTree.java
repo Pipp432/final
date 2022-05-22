@@ -7,6 +7,9 @@ import java.util.Queue;
 import BST.*;
 import LinkedList.CDLinkedList;
 import LinkedList.DListIterator;
+import Queues.EmptyQueueException;
+import Queues.ObjectQueue;
+import Queues.QueueArray;
 
 public class AVLTree {
 	AVLNode root;
@@ -348,35 +351,66 @@ public class AVLTree {
 	}
 
 
+	public int sumOfLeaf() throws EmptyQueueException{
+		QueueArray q = new QueueArray();
+		addDataLeaf(this.root,q);
+		int result = 0;
+		while(!q.isEmpty()){
+			result+=q.removeFirst();
+		}
+		return result;		
+	}
+	public void addDataLeaf(AVLNode node,QueueArray q){
+		if(node==null) return;
+		if(node.left==null && node.right==null) q.insertLast(node.data);
+		addDataLeaf(node.left,q);
+		addDataLeaf(node.right,q);
+	}
+	public int deepestLeavesSum(AVLNode node) throws EmptyQueueException{
+		ObjectQueue q = new ObjectQueue();
+        q.insertLast(root);
+        int level_sum = 0;
+        while(!q.isEmpty()){
+           level_sum = 0;
+            int size = q.size();
+            for(int i =0;i<size;i++){
+                AVLNode current = (AVLNode) (q.removeFirst());
+                level_sum+=current.data;
+                if(current.left!=null) q.insertLast(current.left);
+                if(current.right!=null) q.insertLast(current.right);
+            }
+            
+        }
+        return level_sum;
+
+	}
+
 
 
 	
 	public static void main(String args[]) throws Exception{
 		AVLTree tree = new AVLTree();
 		
-		tree.root = tree.insertNoBalance(10);
+		tree.root = tree.insert(10);
 		// tree.root = tree.insert(11);
 		// tree.root = tree.insert(12);
-		tree.root = tree.insertNoBalance(4);
-		tree.root = tree.insertNoBalance(3);
-		tree.root = tree.insertNoBalance(2);
-		tree.root = tree.insertNoBalance(1);
+		tree.root = tree.insert(4);
+		tree.root = tree.insert(3);
+		tree.root = tree.insert(2);
+		tree.root = tree.insert(1);
 		
 		
 		
 		
 		tree.breadthFirstTraversal();
 		System.out.println();
-		System.out.println(tree.isAVL());
+		System.out.println(tree.deepestLeavesSum(tree.root));
 		// tree.root = tree.rebalance(tree.root);
 		
 	 	// tree.addUp(20, tree.root);
 		//  tree.root.right = (tree.rotateRightChild(tree.root.right));
 		// System.out.println((tree.rotateRightChild(tree.root)).data);
 		
-		 tree.breadthFirstTraversal();
-		 System.out.println();
-		 System.out.println(tree.isAVL());
 		
 		//  System.out.println(node.right.left.data);
 		
