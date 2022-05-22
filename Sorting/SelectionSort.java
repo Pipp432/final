@@ -14,7 +14,7 @@ public class SelectionSort {
                 // Change the minIndex
                 if (arr[j] < arr[minIndex])  minIndex = j;
             }
-                // Swap then the 0th to ith index are sorted
+                // Swap, then the 0th to ith index are sorted
                 int temp = arr[minIndex];
                 arr[minIndex] =arr[i];
                 arr[i] = temp;

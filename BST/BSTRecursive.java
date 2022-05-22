@@ -520,9 +520,6 @@ public class BSTRecursive {
 		t.insert(4);
 		t.insert(6);
 		
-		
-		
-		
 
 		BSTNode r1= new BSTNode(7);
 		BSTRecursive t1 = new BSTRecursive(r1, 1);

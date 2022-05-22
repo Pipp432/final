@@ -74,6 +74,52 @@ Hello.
 
 4. Think of the action that must be done to the current node then recurrse to the left and right.
 
-5. DO NOT TRUST THE isAVL() method because null input returns true
+5. It's easier to work with a node than the whole tree so any method passing in a BST should be overloaded to pass in the root node.
 
-6. It's easier to work with a node than the whole tree so any method passing in a BST should be overloaded to pass in the root node.
+## Heap
+
+1. Heap's tree sturcture will have its leaves starting form index `floor(n/2)+1` in its array representation. Use this to help with checking and parent only operations
+
+2. Max heap and Min heap's code are similar
+
+## Sorting
+
+### Bubble sort
+
+- Iterate n-1 times, compares adjecent data
+- Slow
+
+### Insertion sort
+
+- Two Pointer algorithm: First one points at array. Second one points to the sorted part of the array
+- When the first pointer moves to a new data, the second pointer searches for a position within the sorted array to insert the first pointer's data into
+
+### Selection sort
+
+- Two Pointer algorithm: First one points to a data in the array. Second one points to any data we want to compare the first pointer's data to.
+
+- When the first pointer moves, we assume it is the minimum data, then second pointer search the rest of the array from the first pointer's position to find whether there is a data less than the first pointer's data if found swap them and move the first pointer forward.
+
+### Merge sort
+
+- Divide and Conquer algorithm: steps 
+<br>1. divide the array into left and right halves
+<br> 2. sort the halves
+<br> 3. merge them back
+
+- Explaination of each function
+<br>
+`mergeSort(int[] array)` divides the array into its two halves. It is recurrsivly called until the size of each half is less than 2. It then calls merge(int[] array, int[] left, int[] right)<br><br>
+`merge(int[] array, int[] left, int[] right)` 3 pointers are declared for each array and a basic comparison is made until either the left of right half is ran through then empty the remaining data into the array
+
+### Quick sort
+
+- Divide and Conquer algorithm: steps
+<br>1. Choose a pivot 
+<br>2. Throw every data less than the pivot to the left of the pivot and the data more than the pivot to the right
+<br> 3. The pivot is sorted and do the same for each half 
+
+- Explaination of each function
+<br> `swap(int[]arr, int index1,int index2)`<br>
+basically swap data from index 1 and 2<br>
+`quickSort(int[]arr)` does the pivot selection and rearrange the data using swap
