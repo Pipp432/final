@@ -5,12 +5,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
-
-
 import LinkedList.CDLinkedList;
 import LinkedList.DListIterator;
 import Queues.QueueArray;
-
 
 public class BSTRecursive {
 
@@ -493,7 +490,7 @@ public class BSTRecursive {
 	}
 	public boolean isBalance(BSTNode node){
 		if(node==null) return true;
-		if(Math.abs(getNodeHeight(node.left)-getHeight(node.right))<=1) return true &&isBalance(node.left)&&isBalance(node.right);
+		if(Math.abs(getHeight(node.left)-getHeight(node.right))<=1) return true &&isBalance(node.left)&&isBalance(node.right);
 		else return false;
 	}
 	int rangeSum =0;
@@ -537,13 +534,14 @@ public class BSTRecursive {
 
 		BSTNode r1= new BSTNode(7);
 		BSTRecursive t1 = new BSTRecursive(r1, 1);
-		t1.insert(3);
+		// t1.insert(3);
 		t1.insert(10);
 		t1.insert(9);
 		
-		BTreePrinter.printNode(t.root);
-		System.out.println(t.rangeSum(t.root, 3, 6));
-		
+		BTreePrinter.printNode(t1.root);
+		// System.out.println(t.rangeSum(t.root, 3, 6));
+		System.out.println(t1.isBalance(t1.root));
+		System.out.println(t1.isAVL());
 		
 		
 		// BTreePrinter.printNode(t.root);
