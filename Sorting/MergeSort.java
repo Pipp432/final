@@ -1,8 +1,8 @@
 package Sorting;
 
-class MergeSort 
+public class MergeSort 
 {
-   private static void sort(int[] inputArray){
+   public static void sort(int[] inputArray){
        // Guard clause for null inputs
         if(inputArray==null) return;
        // First store the array length for later use

@@ -1,4 +1,7 @@
 package Queues;
+
+import Sorting.*;
+
 public class QueueArray implements MyQueue {
 	protected int[] theArray;
 	protected int size; // number of currently stored data.
@@ -87,9 +90,24 @@ public class QueueArray implements MyQueue {
 		return result;
 	}
 	
-	public static void main(String[] args) {
-		int d = (0)%5;
-		System.out.println(d);
+
+	public void mergeSort(QueueArray q) throws EmptyQueueException{
+		MergeSort.sort(q.theArray);
+			
+	}
+
+
+	public static void main(String[] args) throws EmptyQueueException {
+		QueueArray q = new QueueArray();
+		q.insertLast(10);
+		q.insertLast(20);
+		q.insertLast(30);
+		q.insertLast(40);
+		q.insertLast(60);
+		q.insertLast(70);
+		ArrayPrinter ap = new ArrayPrinter();
+		 q.mergeSort(q);
+		ap.printArray(q.theArray);
 	}
 	public void selectionSort() throws EmptyQueueException{
 		if(isEmpty()) return;
