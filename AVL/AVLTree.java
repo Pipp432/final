@@ -218,12 +218,14 @@ public class AVLTree {
 		}
 		return false;
 		
-		
-	
-	
-				
-	
-		
+	}
+	public AVLNode lowestCommonAncestor(AVLNode root, AVLNode p, AVLNode q){
+		if(root==null) return null;
+		if(p==null || q==null) return null;
+		if(p.data>root.data && q.data>root.data && root.right!=null) return lowestCommonAncestor(root.right, p, q);
+		if(p.data<root.data && q.data<root.data&& root.left!=null) return lowestCommonAncestor(root.left , p, q) ;
+		return root;
+
 	}
 	
 	public void preOrderTraversal(AVLNode node){
