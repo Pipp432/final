@@ -138,20 +138,54 @@ public class Heap{
         }
         
     }
-    public static boolean isHeap(int[] a, int parent){
-        int left = 2*parent+1;
-        int right = 2*parent+2;
-        if(a.length==0) return false;
-        if(parent<0 || left<0||right<0) return false;
-        if(left>right) return false;
-        if(left>=a.length || right>=a.length) return true;
-        if(a[parent]<a[left] && a[parent]<a[right]){
-            parent++;
-            return isHeap(a,parent);
-        }
+    public static boolean isAHeap(Heap h) {
+		// Guard Clauses
+		if(h==null) return false;
+		if(h.mData==null) return false;
+		int inputSize = h.size;
+		// If less than 2 element it is a heap return immediately
+		if(inputSize<2) return true;
+		
+		// Checking only root nodes to optimize
+		for(int i =0;i<inputSize/2+1;i++){
+			int parent =i;
+			int left = 2*i+1;
+			int right = 2*i+2;
+			if(left<inputSize&&h.mData[parent]>h.mData[left]) return false;
+			if(right<inputSize&&h.mData[parent]>h.mData[right]) return false;
+			
 
-        return false;
-    }
+		}
+		return true;
+	
+	}
+    public static boolean isAHeapRecurrsive(Heap h) {
+		return isAHeapRecurrsive(h,0);
+	}
+	public static boolean isAHeapRecurrsive(Heap h, int i) {
+		// Guard Clauses
+		if(h==null) return false;
+		if(h.mData==null) return false;
+		int inputSize = h.size;
+		// If less than 2 element it is a heap return immediately
+		if(inputSize<2) return true;
+		if(i>=inputSize/2+1) return true;
+		
+		// Checking only root nodes to optimize
+		
+		int parent =i;
+		int left = 2*i+1;
+		int right = 2*i+2;
+		if(left<inputSize&&h.mData[parent]>h.mData[left]) return false;
+		if(right<inputSize&&h.mData[parent]>h.mData[right]) return false;
+		
+			
+
+		
+		return  isAHeapRecurrsive(h,left)&&isAHeapRecurrsive(h,right);
+
+	}
+	
     public void changeData(int data, int index){
         //? I will assume that when changing data the index can change to its correct position.
         //? If this is not the case the whole array must change to fit the new data, which is impractical. 

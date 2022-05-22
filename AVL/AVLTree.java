@@ -186,15 +186,12 @@ public class AVLTree {
 		
 			
 		}
-		
-				
-		
+
 		return false;
 		}
 	public int height(AVLNode node){
 		 if (node == null)
            return 0;
-
       
        return 1 + Math.max(height(node.left), height(node.right));
 
@@ -288,13 +285,8 @@ public class AVLTree {
 			
 			if(temp.left!=null) q.add(temp.left);
 			if(temp.right!=null)q.add(temp.right);
-			
-			
-			
+				
 		}
-			
-		
-
 	}
 	public AVLNode addUp(int num, AVLNode rootNode){
 		if(num==root.data) return root;
@@ -354,31 +346,36 @@ public class AVLTree {
 	}
 
 
+
+
 	
 	public static void main(String args[]) throws Exception{
 		AVLTree tree = new AVLTree();
 		
-		tree.root = tree.insert(10);
-		tree.root = tree.insert(2);
-		tree.root = tree.insert(21);
-		tree.root = tree.insert(3);
-		tree.root = tree.insert(1);
-		tree.root = tree.insert(11);
-		tree.root = tree.insert(25);
+		tree.root = tree.insertNoBalance(10);
+		// tree.root = tree.insert(11);
+		// tree.root = tree.insert(12);
+		tree.root = tree.insertNoBalance(4);
+		tree.root = tree.insertNoBalance(3);
+		tree.root = tree.insertNoBalance(2);
+		tree.root = tree.insertNoBalance(1);
 		
-		tree.root = tree.insert(22);
-		tree.root = tree.insert(30);
+		
 		
 		
 		tree.breadthFirstTraversal();
-		System.out.println();;
+		System.out.println();
+		System.out.println(tree.isAVL());
+		// tree.root = tree.rebalance(tree.root);
 		
 	 	// tree.addUp(20, tree.root);
-		 tree.root.right = (tree.rotateRightChild(tree.root.right));
+		//  tree.root.right = (tree.rotateRightChild(tree.root.right));
 		// System.out.println((tree.rotateRightChild(tree.root)).data);
+		
 		 tree.breadthFirstTraversal();
 		 System.out.println();
-		System.out.println(7/2);
+		 System.out.println(tree.isAVL());
+		
 		//  System.out.println(node.right.left.data);
 		
 	
