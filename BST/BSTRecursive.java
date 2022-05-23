@@ -524,12 +524,14 @@ public class BSTRecursive {
 
 		BSTNode r = new BSTNode(10);
 		BSTRecursive t = new BSTRecursive(r, 1);
-		t.insert(5);
-		t.insert(11);
-		t.insert(9);
-		t.insert(14);
-		t.insert(4);
-		t.insert(6);
+		t.root = t.insert(5);
+		t.root = t.insert(11);
+		t.root = t.insert(9);
+		t.root = t.insert(14);
+		t.root = t.insert(4);
+		t.root = t.insert(6);
+		t.root = t.insert(2);
+		t.root = t.insert(1);
 		
 
 		BSTNode r1= new BSTNode(7);
@@ -538,10 +540,11 @@ public class BSTRecursive {
 		t1.insert(10);
 		t1.insert(9);
 		
-		BTreePrinter.printNode(t1.root);
+		BTreePrinter.printNode(t.root);
+		t.breadthFirstTraversal();
 		// System.out.println(t.rangeSum(t.root, 3, 6));
-		System.out.println(t1.isBalance(t1.root));
-		System.out.println(t1.isAVL());
+		// System.out.println(t1.isBalance(t1.root));
+		// System.out.println(t1.isAVL());
 		
 		
 		// BTreePrinter.printNode(t.root);

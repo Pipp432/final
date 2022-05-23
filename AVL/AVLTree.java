@@ -98,11 +98,13 @@ public class AVLTree {
 	public AVLNode remove(int v, AVLNode n, AVLNode parent) {
 		if (n == null)
 			; // do nothing, there is nothing to be removed
+			// Searching for v
 		else if (v < n.data) {
 			n.left = remove(v, n.left, n);
 		} else if (v > n.data) {
 			n.right = remove(v, n.right, n);
 		} else {
+			// Removing step
 			if (n.left == null && n.right == null) {
 				n = null;
 				size--;
@@ -392,8 +394,8 @@ public class AVLTree {
 		AVLTree tree = new AVLTree();
 		
 		tree.root = tree.insert(10);
-		// tree.root = tree.insert(11);
-		// tree.root = tree.insert(12);
+		tree.root = tree.insert(11);
+		tree.root = tree.insert(12);
 		tree.root = tree.insert(4);
 		tree.root = tree.insert(3);
 		tree.root = tree.insert(2);
