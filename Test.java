@@ -5,11 +5,11 @@ import Sorting.ArrayPrinter;
 public class Test {
     public static void main(String args[]) throws Exception{
         int[] arr = {3,5,6,7,4,3,2,1};
-        // mergeSort(arr);
+        mergeSort(arr);
         ArrayPrinter ap = new ArrayPrinter();
         ap.printArray(arr);
         int[] arr1 ={ 0,4,3,2,4,4,6,8,9,32,1};
-        quickSort(arr1, 0, arr1.length-1);ap.printArray(arr1);
+        // quickSort(arr1, 0, arr1.length-1);ap.printArray(arr1);
         
         // ap.printArray(arr1);
         // CDLinkedList list = new CDLinkedList();
@@ -31,23 +31,23 @@ public class Test {
 
 
     }
-    public static void quickSort(int[] arr, int low, int high){
-        if(low>=high) return;
-        if(arr ==null) return;
-        int leftPointer = low;
-        int rightPointer = high;
-        int pivot = arr[high];
-        while(leftPointer<rightPointer){
-            while(arr[leftPointer]<=pivot&&leftPointer<rightPointer) leftPointer++;
-            while(arr[rightPointer]>=pivot&& leftPointer<rightPointer) rightPointer--;
-            swap(arr, leftPointer,rightPointer);
+    // public static void quickSort(int[] arr, int low, int high){
+    //     if(low>=high) return;
+    //     if(arr ==null) return;
+    //     int leftPointer = low;
+    //     int rightPointer = high;
+    //     int pivot = arr[high];
+    //     while(leftPointer<rightPointer){
+    //         while(arr[leftPointer]<=pivot&&leftPointer<rightPointer) leftPointer++;
+    //         while(arr[rightPointer]>=pivot&& leftPointer<rightPointer) rightPointer--;
+    //         swap(arr, leftPointer,rightPointer);
 
-        }
-        swap(arr, leftPointer,high);
+    //     }
+    //     swap(arr, leftPointer,high);
 
-        quickSort(arr, low, leftPointer-1);
-        quickSort(arr, leftPointer+1, high);
-    }
+    //     quickSort(arr, low, leftPointer-1);
+    //     quickSort(arr, leftPointer+1, high);
+    // }
     public static void swap(int[] arr, int index1, int index2){
         int temp = arr[index1];
         arr[index1] = arr[index2];
@@ -270,4 +270,58 @@ public class Test {
 	// 	pointer1.currentNode.data = pointer2.currentNode.data;
 	// 	pointer2.currentNode.data = temp;
 	// }
+    // public static void quickSort(int[] arr, int low,int high){
+    //     if(arr==null) return;
+    //     if(low>=high) return;
+    //     int rightPointer = high;
+    //     int leftPointer = low;
+    //     int pivot = arr[high];
+    //     while(leftPointer<rightPointer){
+    //         while(leftPointer<rightPointer && arr[leftPointer]<= pivot) leftPointer++;
+    //         while(leftPointer<rightPointer && arr[rightPointer]>=pivot) rightPointer--;
+    //         swap(arr,leftPointer,rightPointer); 
+    //     }
+    //     swap(arr,leftPointer,high);
+
+    //     quickSort(arr, low, leftPointer-1);
+    //     quickSort(arr, leftPointer+1, high);
+    // }
+    public static void mergeSort(int[] array)
+    {
+        if(array==null) return;
+        if(array.length<2) return;
+        int inputLength = array.length;
+        int middleLength = inputLength/2;
+        int[] leftHalf = new int[middleLength];
+        int[] rightHalf = new int[inputLength-middleLength];
+        for(int i =0; i<middleLength;i++){
+            leftHalf[i] = array[i];
+        }
+        for(int i = middleLength;i<inputLength;i++){
+            rightHalf[i-middleLength] = array[i];
+        }
+        mergeSort(leftHalf);
+        mergeSort(rightHalf);
+        merge(array,leftHalf,rightHalf);
+    }
+    public static void merge(int[] array, int[] left, int[] right){
+        if(array==null||left==null||right==null) return;
+        int leftSize = left.length;
+        int rightSize = right.length;
+        int i =0, j=0,k=0;
+        while(i<leftSize && j<rightSize){
+            if(left[i]<right[j]){
+                array[k] = left[i++];
+            }else{
+                array[k] = right[j++];
+            }
+            k++;
+        }
+        while(i<leftSize){
+            array[k++] = left[i++];
+        }
+        while(j<rightSize) {
+            array[k++] = right[j++];
+        }
+    }
 }

@@ -55,15 +55,13 @@ Hello.
 |Max-Heap Class|-|-|-|
 |isHeap()|-|-|Heap.java|
 
-
-
-
-
 # What I have learn while preparing
 
 ## General
 
 1. Do not pigeonhole yourself with the method header. Crate Overloaded methods to help.
+
+2. Draw out the problem do not rely solely on past experience, some problems are design to trick.
 
 ## AVL tree and BST
 
